@@ -1,8 +1,8 @@
 //--------------------------------------------------------------------
 //
-//  StackArray.h
-// 
-//  Class declaration for the array implementation of the Stack ADT
+//  StackLinked.h
+//
+//  Class declaration for the linked implementation of the Stack ADT
 //
 //--------------------------------------------------------------------
 
