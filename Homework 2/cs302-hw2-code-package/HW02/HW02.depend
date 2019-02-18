@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1550199441 source:c:\users\fimey\documents\github\cs302\homework 2\cs302-hw2-code-package\test6.cpp
+1550207526 source:c:\users\fimey\documents\github\cs302\homework 2\cs302-hw2-code-package\test6.cpp
 	<iostream>
 	"config.h"
 	"StackArray.h"
@@ -7,7 +7,7 @@
 
 1550186194 c:\users\fimey\documents\github\cs302\homework 2\cs302-hw2-code-package\config.h
 
-1550201107 c:\users\fimey\documents\github\cs302\homework 2\cs302-hw2-code-package\stackarray.h
+1550207542 c:\users\fimey\documents\github\cs302\homework 2\cs302-hw2-code-package\stackarray.h
 	<stdexcept>
 	<iostream>
 	"Stack.h"
@@ -16,7 +16,18 @@
 	<stdexcept>
 	<iostream>
 
-1550200434 c:\users\fimey\documents\github\cs302\homework 2\cs302-hw2-code-package\stacklinked.h
+1550210040 c:\users\fimey\documents\github\cs302\homework 2\cs302-hw2-code-package\stacklinked.h
+	<stdexcept>
+	<iostream>
+	"Stack.h"
+
+1550186194 source:c:\users\fimey\documents\github\cs302\homework 2\cs302-hw2-code-package\config.h
+
+1550186194 source:c:\users\fimey\documents\github\cs302\homework 2\cs302-hw2-code-package\stack.h
+	<stdexcept>
+	<iostream>
+
+1550207542 source:c:\users\fimey\documents\github\cs302\homework 2\cs302-hw2-code-package\stackarray.h
 	<stdexcept>
 	<iostream>
 	"Stack.h"

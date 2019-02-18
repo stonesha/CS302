@@ -17,9 +17,10 @@ using namespace std;
 #include "Stack.h"
 
 template <typename DataType>
-class StackLinked : public Stack<DataType> {
+class StackLinked : public Stack<DataType>
+{
 
-  public:
+public:
 
     StackLinked(int maxNumber = Stack<DataType>::MAX_STACK_SIZE);
     StackLinked(const StackLinked& other);
@@ -36,18 +37,78 @@ class StackLinked : public Stack<DataType> {
 
     void showStructure() const;
 
-  private:
+private:
 
-    class StackNode {
-      public:
-	StackNode(const DataType& nodeData, StackNode* nextPtr);
+    class StackNode
+    {
+    public:
+        StackNode(const DataType& nodeData, StackNode* nextPtr);
 
-	DataType dataItem;
-	StackNode* next;
+        DataType dataItem;
+        StackNode* next;
     };
 
     StackNode* top;
 };
 
+template <typename DataType>
+StackLinked<DataType>::StackLinked(int maxNumber)
+{
+
+}
+
+template <typename DataType>
+StackLinked<DataType>::StackLinked(const StackLinked& other)
+{
+
+}
+
+template <typename DataType>
+StackLinked<DataType>& StackLinked<DataType>::operator=(const StackLinked& other)
+{
+
+}
+
+template <typename DataType>
+StackLinked<DataType>::~StackLinked()
+{
+
+}
+
+template <typename DataType>
+void StackLinked<DataType>::push(const DataType& newDataItem) throw (logic_error)
+{
+
+}
+
+template <typename DataType>
+DataType StackLinked<DataType>::pop() throw (logic_error)
+{
+
+}
+
+template <typename DataType>
+void StackLinked<DataType>::clear()
+{
+
+}
+
+template <typename DataType>
+bool StackLinked<DataType>::isEmpty() const
+{
+
+}
+
+template <typename DataType>
+bool StackLinked<DataType>::isFull() const
+{
+
+}
+
+template <typename DataType>
+void StackLinked<DataType>::showStructure() const
+{
+
+}
 #endif		//#ifndef STACKARRAY_H
 
