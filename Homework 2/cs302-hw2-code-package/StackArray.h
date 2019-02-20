@@ -9,11 +9,6 @@
 #ifndef STACKARRAY_H
 #define STACKARRAY_H
 
-#include <stdexcept>
-#include <iostream>
-
-using namespace std;
-
 #include "Stack.h"
 
 template <typename DataType>
