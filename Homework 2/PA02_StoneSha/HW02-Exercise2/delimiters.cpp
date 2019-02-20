@@ -12,6 +12,7 @@
 //--------------------------------------------------------------------
 
 #include "StackLinked.h"
+#include <string>
 
 //--------------------------------------------------------------------
 
@@ -22,7 +23,7 @@ bool delimitersOk ( const string &expression ) throw(logic_error);
 int main()
 {
     string inputLine;            // Input line
-    char   ch;                   // Holding pen for input chars
+    //char   ch;                   // Holding pen for input chars
 
     cout << "This program checks for properly matched delimiters."
          << endl;
