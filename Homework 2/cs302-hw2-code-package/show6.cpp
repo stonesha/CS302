@@ -3,7 +3,7 @@
 //--------------------------------------------------------------------
 
 template <typename DataType>
-void StackArray<DataType>::showStructure() const 
+void StackArray<DataType>::showStructure() const
 
 // Array implementation. Outputs the data items in a stack. If the
 // stack is empty, outputs "Empty stack". This operation is intended
@@ -38,7 +38,7 @@ void StackArray<DataType>::showStructure() const
 //--------------------------------------------------------------------
 
 template <typename DataType>
-void StackLinked<DataType>::showStructure() const 
+void StackLinked<DataType>::showStructure() const
 
 // Linked list implementation. Outputs the data elements in a stack.
 // If the stack is empty, outputs "Empty stack". This operation is
@@ -54,7 +54,7 @@ void StackLinked<DataType>::showStructure() const
         cout << "Top\t";
 	for (StackNode* temp = top; temp != 0; temp = temp->next) {
 	    if( temp == top ) {
-		cout << '[" << temp->dataItem << "]\t";
+		cout << "[" << temp->dataItem << "]\t";
 	    }
 	    else {
 		cout << temp->dataItem << "\t";

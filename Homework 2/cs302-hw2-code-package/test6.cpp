@@ -12,9 +12,9 @@ using namespace std;
 #include "config.h"
 
 #if !LAB6_TEST1
-#  include "StackArray.cpp"
+#include "StackArray.h"
 #else
-#  include "StackLinked.cpp"
+#include "StackLinked.h"
 #endif
 
 void print_help()
@@ -31,7 +31,7 @@ void print_help()
 }
 
 template <typename DataType>
-void test_stack(Stack<DataType>& testStack) 
+void test_stack(Stack<DataType>& testStack)
 {
     DataType testDataItem;            // Stack data item
     char cmd;                         // Input command
@@ -88,7 +88,7 @@ void test_stack(Stack<DataType>& testStack)
 	      default :                               // Invalid command
 		   cout << "Inactive or invalid command" << endl;
 	    }
-	} 
+	}
 	catch (logic_error e) {
 	    cout << "Error: " << e.what() << endl;
 	}

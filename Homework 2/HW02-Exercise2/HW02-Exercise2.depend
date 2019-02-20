@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1550640273 source:c:\users\fimey\documents\github\cs302\homework 2\hw02-exercise2\delimiters.cpp
+	"StackLinked.h"
+
+1550636138 c:\users\fimey\documents\github\cs302\homework 2\hw02-exercise2\stacklinked.h
+	"Stack.h"
+
+1550186194 c:\users\fimey\documents\github\cs302\homework 2\hw02-exercise2\stack.h
+	<stdexcept>
+	<iostream>
+
+1550642574 source:c:\users\fimey\documents\github\cs302\homework 2\pa02_stonesha\hw02-exercise2\delimiters.cpp
+	"StackLinked.h"
+
+1550640846 c:\users\fimey\documents\github\cs302\homework 2\pa02_stonesha\hw02-exercise2\stacklinked.h
+	"Stack.h"
+
+1550186194 c:\users\fimey\documents\github\cs302\homework 2\pa02_stonesha\hw02-exercise2\stack.h
+	<stdexcept>
+	<iostream>
+

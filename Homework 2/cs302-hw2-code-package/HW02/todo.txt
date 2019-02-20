@@ -1,0 +1,8 @@
+===To Do===
+
+Implement StackArray Fully
+
+Setup StackLinked methods
+Implement StackLinked Fully
+
+Figure out tests and shows
