@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1550636850 source:c:\users\fimey\documents\github\cs302\homework 2\hw02-exercise1\main.cpp
+	"StackLinked.h"
+	<string>
+	<cctype>
+	<cmath>
+
+1550637153 c:\users\fimey\documents\github\cs302\homework 2\hw02-exercise1\stacklinked.h
+	"Stack.h"
+
+1550186194 c:\users\fimey\documents\github\cs302\homework 2\hw02-exercise1\stack.h
+	<stdexcept>
+	<iostream>
+

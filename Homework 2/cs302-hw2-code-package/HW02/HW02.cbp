@@ -32,7 +32,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="../Stack.h" />
+		<Unit filename="../StackArray.h" />
+		<Unit filename="../StackLinked.h" />
+		<Unit filename="../config.h" />
+		<Unit filename="../delimiters.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../show6.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../test6.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

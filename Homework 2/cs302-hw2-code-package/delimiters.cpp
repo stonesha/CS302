@@ -7,9 +7,9 @@
 #include <iostream>
 
 #if LAB6_TEST1
-#   include "StackLinked.cpp"
+#   include "StackLinked.h"
 #else
-#   include "StackArray.cpp"
+#   include "StackArray.h"
 #endif
 
 //--------------------------------------------------------------------
@@ -42,7 +42,7 @@ int main()
 
         if( ! cin )              // Reached EOF: stop processing
             break;
-    
+
         if ( delimitersOk (inputLine) )
             cout << "Valid" << endl;
         else
@@ -53,7 +53,7 @@ int main()
 }
 
 //--------------------------------------------------------------------
-// delimitersOk: the function that students must implement for 
+// delimitersOk: the function that students must implement for
 //    Programming Exercise 3.
 // Note: we used the term "braces" to describe '[' and ']'. It would
 //    have been better to use the term "brackets". The program can be
