@@ -86,23 +86,17 @@ StackArray<DataType>::~StackArray()
 template <typename DataType>
 void StackArray<DataType>::push(const DataType& newDataItem) throw (logic_error)
 {
-    if(isFull())
-    {
-        cout << "Error: StackArray is full." << endl;
-    } else
-    {
-        dataItems[++top] = newDataItem;
-        cout << "Success: Data item successfully pushed." << endl;
-    }
+    if(isFull()){throw logic_error("Full. Can't push");}
+
+    dataItems[++top] = newDataItem;
+    cout << "Success: Data item successfully pushed." << endl;
+
 }
 
 template <typename DataType>
 DataType StackArray<DataType>::pop() throw (logic_error)
 {
-    if(isEmpty())
-    {
-        cout << "Error: StackArray is empty." << endl;
-    }
+    if(isEmpty()){throw logic_error ("Empty, can't pop");}
 
     DataType popData = dataItems[top--];
     return popData;
