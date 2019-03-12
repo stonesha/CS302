@@ -4,7 +4,7 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
-#include <vector>
+#include <time.h>
 
 template <typename T>
 class MergeSort
@@ -24,8 +24,13 @@ class MergeSort
 
     private:
         T *arr;
-
         int size;
+
+        float seconds = 0;
+        int clicks = 0;
+
+        size_t comparisons = 0;
+        size_t swaps = 0;
 };
 
 
@@ -67,6 +72,7 @@ void MergeSort<T>::deallocate()
 template <typename T>
 void MergeSort<T>::serialize()
 {
+    seconds = ((float(clicks)/CLOCKS_PER_SEC));
 
     for(int i = 0; i < size; i++)
     {
@@ -74,16 +80,29 @@ void MergeSort<T>::serialize()
             std::cout << std::endl;
         std::cout << arr[i] << ", ";
     }
+
+    std::cout << std::endl << "The sorting took "
+        << clicks << " clicks and "
+        << seconds << " seconds." << std::endl;
+
+    std::cout << "There were "
+        << comparisons << " comparisons and "
+        << swaps << " swaps." << std::endl;
 }
 
 template <typename T>
 void MergeSort<T>::merge(int start, int mid, int end)
 {
     int start2 = mid + 1;
+    clock_t t;
 
+    t = clock();
     // If the direct merge is already sorted
     if (arr[mid] <= arr[start2])
     {
+        comparisons++;
+        t = clock() - t;
+        clicks += t;
         return;
     }
 
@@ -91,11 +110,13 @@ void MergeSort<T>::merge(int start, int mid, int end)
     // of both arrays to merge
     while (start <= mid && start2 <= end)
     {
-
+        comparisons++;
         // If element 1 is in right place
         if (arr[start] <= arr[start2])
         {
+            comparisons++;
             start++;
+
         }
         else
         {
@@ -106,10 +127,13 @@ void MergeSort<T>::merge(int start, int mid, int end)
             // element 2, right by 1.
             while (index != start)
             {
+                comparisons++;
                 arr[index] = arr[index - 1];
+                swaps++;
                 index--;
             }
             arr[start] = value;
+            swaps++;
 
             // Update all the pointers
             start++;
@@ -123,8 +147,12 @@ void MergeSort<T>::merge(int start, int mid, int end)
 template <typename T>
 void MergeSort<T>::sort(int front, int end)
 {
+    clock_t t;
+    t = clock();
+
     if (front < end)
     {
+        comparisons++;
 
         // Same as (l + r) / 2, but avoids overflow
         // for large l and r
@@ -135,6 +163,9 @@ void MergeSort<T>::sort(int front, int end)
         sort(mid + 1, end);
         merge(front, mid, end);
     }
+    t = clock() - t;
+
+    clicks += t;
 }
 
 

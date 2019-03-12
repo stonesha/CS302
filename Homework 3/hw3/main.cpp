@@ -2,7 +2,6 @@
 selection sort and merge sort
 
 */
-#include <iostream>
 #include "BubbleSort.h"
 #include "MergeSort.h"
 

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
+#include <time.h>
 
 template <typename T>
 class BubbleSort
@@ -21,6 +22,12 @@ class BubbleSort
     private:
         T *arr;
         int size;
+
+        float seconds = 0;
+        int clicks = 0;
+
+        size_t comparisons = 0;
+        size_t swaps = 0;
 };
 
 template <typename T>
@@ -69,12 +76,23 @@ void BubbleSort<T>::serialize()
             std::cout << std::endl;
         std::cout << arr[i] << ", ";
     }
+
+    std::cout << std::endl << "The sorting took "
+        << clicks << " clicks and "
+        << seconds << " seconds." << std::endl;
+
+    std::cout << "There were "
+        << comparisons << " comparisons and "
+        << swaps << " swaps." << std::endl;
 }
 
 template <typename T>
 void BubbleSort<T>::sort()
 {
     bool swapped = false;
+
+    clock_t t;
+    t = clock();
 
     for(int i = 0; i < size - 1; i++)
     {
@@ -83,7 +101,9 @@ void BubbleSort<T>::sort()
         {
             if(arr[j] > arr[j+1])
             {
+                comparisons++;
                 std::swap(arr[j], arr[j+1]);
+                swaps++;
                 swapped = true;
             }
         }
@@ -91,6 +111,13 @@ void BubbleSort<T>::sort()
         if(!swapped)
             break;
     }
+
+    t = clock() - t;
+
+    clicks = t;
+
+    seconds = ((float(t)/CLOCKS_PER_SEC));
+
 }
 
 
