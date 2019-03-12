@@ -1,10 +1,10 @@
-/**
- * @brief  CS-302 Homework 1
- * @Author Stone Sha (stones@nevada.unr.edu)
- * @date   February 2019
- *
- * This file is the file for delimiter checking
- */
+//
+//  delimiters.cpp
+//  proj2
+//
+//  Created by Joshua Insorio on 2/19/19.
+//  Copyright © 2019 Joshua Insorio. All rights reserved.
+//
 //--------------------------------------------------------------------
 //
 //   delimiters.cpp
@@ -16,23 +16,57 @@
 
 //--------------------------------------------------------------------
 
-bool delimitersOk ( const string &expression ) throw(logic_error);
+bool delimetersOk( const string& expression )
+{
+    StackLinked<char> stack;
+    for(unsigned int i = 0; i < expression.length(); i++)
+    {
+        if((expression[i] == '(')||(expression[i] == '{')||(expression[i] == '<')||(expression[i] == '['))
+        {
+            stack.push(expression[i]);
+        }
+        else if((expression[i] == ')')||(expression[i] == '}')||(expression[i] == '>')||(expression[i] == ']'))
+        {
+            if((stack.pop() != '('))
+            {
+                return false;
+            }
+            else if((stack.pop() != '{'))
+            {
+                return false;
+            }
+            else if((stack.pop() != '<'))
+            {
+                return false;
+            }
+            else if((stack.pop() != '['))
+            {
+                return false;
+            }
+        }
+    }
+    if(stack.isEmpty())
+    {
+        return true;
+    }
+    return false;
+}
 
 //--------------------------------------------------------------------
 
 int main()
 {
+
     string inputLine;            // Input line
     //char   ch;                   // Holding pen for input chars
 
     cout << "This program checks for properly matched delimiters."
-         << endl;
+    << endl;
 
-    /* commented out to allow for test cases to run
     while( cin )
     {
         cout << "Enter delimited expression (<EOF> to quit) : "
-             << endl;
+        << endl;
 
         // Read in one line
         inputLine = "";
@@ -46,22 +80,16 @@ int main()
         if( ! cin )              // Reached EOF: stop processing
             break;
 
-        if ( delimitersOk (inputLine) )
+        if ( delimetersOk(inputLine))
             cout << "Valid" << endl;
         else
             cout << "Invalid" << endl;
     }
-    */
 
-    cout << "Test Cases" << endl;
-    cout << "(test) is:" << boolalpha << delimitersOk("(test)") << endl;
-    cout << "()((test)) is:" << boolalpha << delimitersOk("()((test))") << endl;
-    cout << "((()))test is:" << boolalpha << delimitersOk("((()))test") << endl;
-    cout << ")()()( is: " << boolalpha << delimitersOk(")()()(") << endl;
-    cout << ")( is:" << boolalpha << delimitersOk(")(") << endl;
 
     return 0;
 }
+
 
 //--------------------------------------------------------------------
 // delimitersOk: the function that students must implement for
@@ -72,48 +100,4 @@ int main()
 //--------------------------------------------------------------------
 
 // Insert your delimitersOk function below
-
-//throws a logic error just in case popping an empty element (which happened frequently during tests)
-bool delimitersOk ( const string &expression ) throw(logic_error)
-{
-    //clears just in case
-    StackLinked<char> stack;
-    stack.clear();
-
-    //try catch block for catching the popping error
-    try
-    {
-        //for loop iterating over the string
-        for(size_t i = 0; i < expression.length();i++)
-        {
-            //switch statement for catching different delimiters
-            switch(expression[i])
-            {
-            case '(':
-                //pushes delimiters that are open
-                stack.push(expression[i]);
-                break;
-
-            case ')':
-                //pops delimiters to close
-                stack.pop();
-                break;
-
-            }
-        }
-        //if all elements have been pushes and popped properly
-        //this should return true, returns false if there's still
-        // a delimiter
-        return stack.isEmpty();
-
-    } catch (logic_error)
-    {
-        //otherwise if theres a close delimiter
-        //it will try to pop and throws a logical error
-        return false;
-    }
-
-}
-
-
 

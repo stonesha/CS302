@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1552372533 source:c:\users\fimey\documents\github\cs302\homework 3\hw3\main.cpp
+	"BubbleSort.h"
+	"MergeSort.h"
+
+1552369358 source:c:\users\fimey\documents\github\cs302\homework 3\hw3\mergesort.cpp
+	"MergeSort.h"
+
+1552374496 c:\users\fimey\documents\github\cs302\homework 3\hw3\mergesort.h
+	<iostream>
+	<random>
+	<algorithm>
+	<time.h>
+
+1552194408 source:c:\users\fimey\documents\github\cs302\homework 3\hw3\selectionsort.cpp
+	"SelectionSort.h"
+
+1552194327 c:\users\fimey\documents\github\cs302\homework 3\hw3\selectionsort.h
+	<iostream>
+	<random>
+
+1552369358 source:c:\users\fimey\documents\github\cs302\homework 3\hw3\bubblesort.cpp
+	"BubbleSort.h"
+
+1552373086 c:\users\fimey\documents\github\cs302\homework 3\hw3\bubblesort.h
+	<iostream>
+	<random>
+	<algorithm>
+	<time.h>
+
+1552284147 c:\users\fimey\documents\github\cs302\homework 3\hw3\sortinginterface.h
+	<iostream>
+	<random>
+	<algorithm>
+	<vector>
+
