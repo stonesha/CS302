@@ -32,7 +32,7 @@ int main()
                 case 1:
                     {
                         std::cout << "=====TESTING THOUSAND VALUES=====" << std::endl;
-                        BubbleSort Bthousand(1000);
+                        BubbleSort<int> Bthousand(1000);
 
                         Bthousand.sort();
 
@@ -47,7 +47,7 @@ int main()
                 case 2:
                     {
                         std::cout << "=====TESTING TEN THOUSAND VALUES=====" << std::endl;
-                        BubbleSort BtenThousand(10000);
+                        BubbleSort<int> BtenThousand(10000);
 
                         BtenThousand.sort();
 
@@ -60,7 +60,7 @@ int main()
                 case 3:
                     {
                         std::cout << "=====TESTING ONE HUNDRED THOUSAND VALUES=====" << std::endl;
-                        BubbleSort BhundredThousand(100000);
+                        BubbleSort<int> BhundredThousand(100000);
 
                         BhundredThousand.sort();
 
@@ -89,7 +89,7 @@ int main()
                 {
                     std::cout << "=====TESTING THOUSAND VALUES=====" << std::endl;
 
-                    MergeSort Mthousand(1000);
+                    MergeSort<int> Mthousand(1000);
 
                     Mthousand.sort(0, 1000);
 
@@ -103,7 +103,7 @@ int main()
                 {
                     std::cout << "=====TESTING TEN THOUSAND VALUES=====" << std::endl;
 
-                    MergeSort MtenThousand(10000);
+                    MergeSort<int> MtenThousand(10000);
 
                     MtenThousand.sort(0, 10000);
 
@@ -117,16 +117,14 @@ int main()
                 {
                     std::cout << "=====TESTING ONE HUNDRED THOUSAND VALUES=====" << std::endl;
 
-                    MergeSort MhundredThousand(100000);
+                    MergeSort<int> MhundredThousand(100000);
 
                     MhundredThousand.sort(0, 100000);
 
                     MhundredThousand.serialize();
 
-                    std::cout << "test" << std::endl;
                     MhundredThousand.deallocate();
 
-                    std::cout << "deallocate" << std::endl;
                 }
                 break;
 
