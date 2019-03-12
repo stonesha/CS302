@@ -32,9 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="BubbleSort.cpp" />
 		<Unit filename="BubbleSort.h" />
-		<Unit filename="MergeSort.cpp" />
 		<Unit filename="MergeSort.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
