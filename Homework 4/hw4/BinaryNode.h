@@ -1,6 +1,12 @@
-
+/**
+ * @file BinaryNode.h
+ * @author Stone Sha (stones@nevada.unr.edu)
+ * @date March, 2019
+ * @brief Class file for BinaryNode, self-contained header
+ */
 #ifndef BINARY_NODE_
 #define BINARY_NODE_
+
 #include <memory>
 
 template<class ItemType>
@@ -33,6 +39,4 @@ public:
     void setRightChildPtr(std::shared_ptr<BinaryNode<ItemType>> rightPtr);
 
 }; // end BinaryNode
-
-#include “BinaryNode.cpp”
 #endif

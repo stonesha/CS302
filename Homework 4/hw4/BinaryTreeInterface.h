@@ -1,7 +1,12 @@
-
+/**
+ * @file BinaryTreeInterface.h
+ * @author Stone Sha (stones@nevada.unr.edu)
+ * @date March, 2019
+ * @brief Interface class for Binary trees
+ */
 #ifndef BINARY_TREE_INTERFACE_
 #define BINARY_TREE_INTERFACE_
-#include “NotFoundException.h”
+
 template<class ItemType>
 class BinaryTreeInterface
 {
@@ -72,4 +77,4 @@ public:
     virtual ~BinaryTreeInterface() { }
 
 }; // end BinaryTreeInterface
-#endif;
+#endif

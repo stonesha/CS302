@@ -1,10 +1,9 @@
 
 #ifndef BINARY_NODE_TREE_
 #define BINARY_NODE_TREE_
-#include “BinaryTreeInterface.h”
-#include “BinaryNode.h”
-#include “PrecondViolatedExcept.h”
-#include “NotFoundException.h”
+#include "BinaryTreeInterface.h"
+#include "BinaryNode.h"
+#include "PrecondViolatedExcept.h"
 
 template<class ItemType>
 class BinaryNodeTree : public BinaryTreeInterface<ItemType>
@@ -78,5 +77,5 @@ public:
     BinaryNodeTree& operator = (const BinaryNodeTree& rightHandSide);
 
 }; // end BinaryNodeTree
-#include “BinaryNodeTree.cpp”
+#include "BinaryNodeTree.cpp"
 #endif

@@ -1,18 +1,19 @@
-
-/** Link-based implementation of the ADT binary search tree.
-@file BinarySearchTree.h */
-
+/**
+ * @file BinarySearchTree.h
+ * @author Stone Sha (stones@nevada.unr.edu)
+ * @date March, 2019
+ * @brief Class file for BinarySearchTree, self-contained header
+ */
 #ifndef BINARY_SEARCH_TREE_
 #define BINARY_SEARCH_TREE_
+
+#include <memory>
+#include <stdexcept>
 #include "BinaryTreeInterface.h"
 #include "BinaryNode.h"
-#include "BinaryNodeTree.h"
-#include "NotFoundException.h"
-#include "PrecondViolatedExcept.h"
-#include <memory>
 
 template<class ItemType>
-class BinarySearchTree : public BinaryNodeTree<ItemType>
+class BinarySearchTree
 {
 private:
     std::shared_ptr<BinaryNode<ItemType>> rootPtr;
@@ -64,14 +65,14 @@ public:
     int getHeight() const;
     int getNumberOfNodes() const;
 
-    ItemType getRootData() const throw(PrecondViolatedExcept);
+    ItemType getRootData() const throw(std::logic_error);
     void setRootData(const ItemType& newData);
 
     bool add(const ItemType& newEntry);
     bool remove(const ItemType& target);
     void clear();
 
-    ItemType getEntry(const ItemType& anEntry) const throw(NotFoundException);
+    ItemType getEntry(const ItemType& anEntry) const throw(std::logic_error);
     bool contains(const ItemType& anEntry) const;
 
 //------------------------------------------------------------
@@ -88,5 +89,40 @@ public:
     operator=(const BinarySearchTree<ItemType>& rightHandSide);
 
 }; // end BinarySearchTree
-#include "BinarySearchTree.cpp"
 #endif
+
+//------------------------------------------------------------
+// Constructor and Destructor Section.
+//------------------------------------------------------------
+/**
+* Constructor for BinarySearchTree sets rootPtr to nullptr
+* indicating an empty tree
+**/
+template<class ItemType>
+BinarySearchTree<ItemType>::BinarySearchTree() : rootPtr(nullptr)
+{
+}//end constructor
+
+/**
+* Parameterized Constructor for BinarySearchTree
+* @param rootItem       Value/ADT to be copied to rootPtr
+**/
+template<class ItemType>
+BinarySearchTree<ItemType>::BinarySearchTree(const ItemType& rootItem) :
+    rootPtr(std::make_shared<BinaryNode<ItemType>>(rootItem, nullptr, nullptr))
+{
+}//end constructor
+
+template<class ItemType>
+BinarySearchTree<ItemType>::BinarySearchTree(const BinarySearchTree<ItemType>& tree)
+{
+
+}
+
+template<class ItemType>
+BinarySearchTree<ItemType>::~BinarySearchTree()
+{
+
+}
+
+
