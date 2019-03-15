@@ -86,7 +86,7 @@ public:
 // Overloaded Operator Section.
 //------------------------------------------------------------
     BinarySearchTree<ItemType>&
-    operator=(const BinarySearchTree<ItemType>& rightHandSide);
+        operator=(const BinarySearchTree<ItemType>& rightHandSide);
 
 }; // end BinarySearchTree
 #endif
@@ -94,6 +94,7 @@ public:
 //------------------------------------------------------------
 // Constructor and Destructor Section.
 //------------------------------------------------------------
+
 /**
 * Constructor for BinarySearchTree sets rootPtr to nullptr
 * indicating an empty tree
@@ -113,14 +114,181 @@ BinarySearchTree<ItemType>::BinarySearchTree(const ItemType& rootItem) :
 {
 }//end constructor
 
+/**
+*
+* @param
+**/
 template<class ItemType>
 BinarySearchTree<ItemType>::BinarySearchTree(const BinarySearchTree<ItemType>& tree)
+{
+    *this = tree;
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+BinarySearchTree<ItemType>::~BinarySearchTree()
 {
 
 }
 
+
+//------------------------------------------------------------
+// Public Methods Section.
+//------------------------------------------------------------
+
+/**
+*
+* @param
+**/
 template<class ItemType>
-BinarySearchTree<ItemType>::~BinarySearchTree()
+bool BinarySearchTree<ItemType>::isEmpty() const
+{
+
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+int BinarySearchTree<ItemType>::getHeight() const
+{
+
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+int BinarySearchTree<ItemType>::getNumberOfNodes() const
+{
+
+}
+
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+ItemType BinarySearchTree<ItemType>::getRootData() const throw(std::logic_error)
+{
+
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+void BinarySearchTree<ItemType>::setRootData(const ItemType& newData)
+{
+
+}
+
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+bool BinarySearchTree<ItemType>::add(const ItemType& newEntry)
+{
+
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+bool BinarySearchTree<ItemType>::remove(const ItemType& target)
+{
+
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+void BinarySearchTree<ItemType>::clear()
+{
+
+}
+
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+ItemType BinarySearchTree<ItemType>::getEntry(const ItemType& anEntry) const throw(std::logic_error)
+{
+
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+bool BinarySearchTree<ItemType>::contains(const ItemType& anEntry) const
+{
+
+}
+
+
+//------------------------------------------------------------
+// Public Traversals Section.
+//------------------------------------------------------------
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+void BinarySearchTree<ItemType>::preorderTraverse(void visit(ItemType&)) const
+{
+
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+void BinarySearchTree<ItemType>::inorderTraverse(void visit(ItemType&)) const
+{
+
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+void BinarySearchTree<ItemType>::postorderTraverse(void visit(ItemType&)) const
+{
+
+}
+
+
+//------------------------------------------------------------
+// Overloaded Operator Section.
+//------------------------------------------------------------
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+BinarySearchTree<ItemType>&
+    BinarySearchTree<ItemType>::operator=(const BinarySearchTree<ItemType>& rightHandSide)
 {
 
 }
