@@ -39,7 +39,6 @@ public:
     void setRightChildPtr(std::shared_ptr<BinaryNode<ItemType>> rightPtr);
 
 }; // end BinaryNode
-#endif
 
 template<class ItemType>
 BinaryNode<ItemType>::BinaryNode() :
@@ -70,41 +69,44 @@ BinaryNode<ItemType>::BinaryNode(const ItemType& anItem,
 template<class ItemType>
 void BinaryNode<ItemType>::setItem(const ItemType& anItem)
 {
-
+    item = anItem;
 }
 
 template<class ItemType>
 ItemType BinaryNode<ItemType>::getItem() const
 {
-
+    return item;
 }
 
 template<class ItemType>
 bool BinaryNode<ItemType>::isLeaf() const
 {
-
+   return ((leftChildPtr == nullptr) &&
+           (rightChildPtr == nullptr));
 }
 
 template<class ItemType>
 auto BinaryNode<ItemType>::getLeftChildPtr() const
 {
-
+    return leftChildPtr;
 }
 
 template<class ItemType>
 auto BinaryNode<ItemType>::getRightChildPtr() const
 {
-
+    return rightChildPtr;
 }
 
 template<class ItemType>
 void BinaryNode<ItemType>::setLeftChildPtr(std::shared_ptr<BinaryNode<ItemType>> leftPtr)
 {
-
+    leftChildPtr = leftPtr;
 }
 
 template<class ItemType>
 void BinaryNode<ItemType>::setRightChildPtr(std::shared_ptr<BinaryNode<ItemType>> rightPtr)
 {
-
+    rightChildPtr = rightPtr;
 }
+
+#endif
