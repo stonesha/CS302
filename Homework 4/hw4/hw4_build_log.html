@@ -4,39 +4,122 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>14-03-2019 at 23:40.20</u><br />
-Build ended on: <u>14-03-2019 at 23:40.21</u><p />
+Build started on: <u>15-03-2019 at 17:59.34</u><br />
+Build ended on: <u>15-03-2019 at 17:59.35</u><p />
 <b>-------------- Build: Debug in hw4 (compiler: GNU GCC Compiler)---------------</b><br />
 mingw32-g++.exe -Wall -fexceptions -g  -c "C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp" -o obj\Debug\main.o<br />
 mingw32-g++.exe  -o bin\Debug\hw4.exe obj\Debug\main.o   <br />
-In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:13:0:<br />
-C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h: In member function 'bool BinarySearchTree&lt;ItemType&gt;::isEmpty() const':<br />
-<font color="#0000ff">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:137:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h: In member function 'bool BinaryNode&lt;ItemType&gt;::isLeaf() const':<br />
+<font color="#0000ff">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:86:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
  }<br />
  ^<br />
-C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h: In member function 'int BinarySearchTree&lt;ItemType&gt;::getHeight() const':<br />
-<font color="#0000ff">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:143:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
- }<br />
- ^<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:12:0,<br />
+                 from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h: At global scope:<br />
+<font color="#ff0000">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:45:1: error: redefinition of 'BinaryNode&lt;ItemType&gt;::BinaryNode()'</font><br />
+ BinaryNode&lt;ItemType&gt;::BinaryNode() :<br />
+ ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:45:1: note: 'BinaryNode&lt;ItemType&gt;::BinaryNode()' previously declared here<br />
+ BinaryNode&lt;ItemType&gt;::BinaryNode() :<br />
+ ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:12:0,<br />
+                 from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:<br />
+<font color="#ff0000">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:52:1: error: redefinition of 'BinaryNode&lt;ItemType&gt;::BinaryNode(const ItemType&amp;)'</font><br />
+ BinaryNode&lt;ItemType&gt;::BinaryNode(const ItemType&amp; anItem) :<br />
+ ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:52:1: note: 'BinaryNode&lt;ItemType&gt;::BinaryNode(const ItemType&amp;)' previously declared here<br />
+ BinaryNode&lt;ItemType&gt;::BinaryNode(const ItemType&amp; anItem) :<br />
+ ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:12:0,<br />
+                 from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:<br />
+<font color="#ff0000">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:61:1: error: redefinition of 'BinaryNode&lt;ItemType&gt;::BinaryNode(const ItemType&amp;, std::shared_ptr&lt;BinaryNode&lt;ItemType&gt; &gt;, std::shared_ptr&lt;BinaryNode&lt;ItemType&gt; &gt;)'</font><br />
+ BinaryNode&lt;ItemType&gt;::BinaryNode(const ItemType&amp; anItem,<br />
+ ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:61:1: note: 'BinaryNode&lt;ItemType&gt;::BinaryNode(const ItemType&amp;, std::shared_ptr&lt;BinaryNode&lt;ItemType&gt; &gt;, std::shared_ptr&lt;BinaryNode&lt;ItemType&gt; &gt;)' previously declared here<br />
+ BinaryNode&lt;ItemType&gt;::BinaryNode(const ItemType&amp; anItem,<br />
+ ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:12:0,<br />
+                 from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:<br />
+<font color="#ff0000">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:71:6: error: redefinition of 'void BinaryNode&lt;ItemType&gt;::setItem(const ItemType&amp;)'</font><br />
+ void BinaryNode&lt;ItemType&gt;::setItem(const ItemType&amp; anItem)<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:71:6: note: 'void BinaryNode&lt;ItemType&gt;::setItem(const ItemType&amp;)' previously declared here<br />
+ void BinaryNode&lt;ItemType&gt;::setItem(const ItemType&amp; anItem)<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:12:0,<br />
+                 from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:<br />
+<font color="#ff0000">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:77:10: error: redefinition of 'ItemType BinaryNode&lt;ItemType&gt;::getItem() const'</font><br />
+ ItemType BinaryNode&lt;ItemType&gt;::getItem() const<br />
+          ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:77:10: note: 'ItemType BinaryNode&lt;ItemType&gt;::getItem() const' previously declared here<br />
+ ItemType BinaryNode&lt;ItemType&gt;::getItem() const<br />
+          ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:12:0,<br />
+                 from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:<br />
+<font color="#ff0000">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:83:6: error: redefinition of 'bool BinaryNode&lt;ItemType&gt;::isLeaf() const'</font><br />
+ bool BinaryNode&lt;ItemType&gt;::isLeaf() const<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:83:6: note: 'bool BinaryNode&lt;ItemType&gt;::isLeaf() const' previously declared here<br />
+ bool BinaryNode&lt;ItemType&gt;::isLeaf() const<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:12:0,<br />
+                 from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:<br />
+<font color="#ff0000">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:89:6: error: redefinition of 'auto BinaryNode&lt;ItemType&gt;::getLeftChildPtr() const'</font><br />
+ auto BinaryNode&lt;ItemType&gt;::getLeftChildPtr() const<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:89:6: note: 'auto BinaryNode&lt;ItemType&gt;::getLeftChildPtr() const' previously declared here<br />
+ auto BinaryNode&lt;ItemType&gt;::getLeftChildPtr() const<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:12:0,<br />
+                 from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:<br />
+<font color="#ff0000">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:95:6: error: redefinition of 'auto BinaryNode&lt;ItemType&gt;::getRightChildPtr() const'</font><br />
+ auto BinaryNode&lt;ItemType&gt;::getRightChildPtr() const<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:95:6: note: 'auto BinaryNode&lt;ItemType&gt;::getRightChildPtr() const' previously declared here<br />
+ auto BinaryNode&lt;ItemType&gt;::getRightChildPtr() const<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:12:0,<br />
+                 from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:<br />
+<font color="#ff0000">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:101:6: error: redefinition of 'void BinaryNode&lt;ItemType&gt;::setLeftChildPtr(std::shared_ptr&lt;BinaryNode&lt;ItemType&gt; &gt;)'</font><br />
+ void BinaryNode&lt;ItemType&gt;::setLeftChildPtr(std::shared_ptr&lt;BinaryNode&lt;ItemType&gt;&gt; leftPtr)<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:101:6: note: 'void BinaryNode&lt;ItemType&gt;::setLeftChildPtr(std::shared_ptr&lt;BinaryNode&lt;ItemType&gt; &gt;)' previously declared here<br />
+ void BinaryNode&lt;ItemType&gt;::setLeftChildPtr(std::shared_ptr&lt;BinaryNode&lt;ItemType&gt;&gt; leftPtr)<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:12:0,<br />
+                 from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:<br />
+<font color="#ff0000">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:107:6: error: redefinition of 'void BinaryNode&lt;ItemType&gt;::setRightChildPtr(std::shared_ptr&lt;BinaryNode&lt;ItemType&gt; &gt;)'</font><br />
+ void BinaryNode&lt;ItemType&gt;::setRightChildPtr(std::shared_ptr&lt;BinaryNode&lt;ItemType&gt;&gt; rightPtr)<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:11:0:<br />
+C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinaryNode.h:107:6: note: 'void BinaryNode&lt;ItemType&gt;::setRightChildPtr(std::shared_ptr&lt;BinaryNode&lt;ItemType&gt; &gt;)' previously declared here<br />
+ void BinaryNode&lt;ItemType&gt;::setRightChildPtr(std::shared_ptr&lt;BinaryNode&lt;ItemType&gt;&gt; rightPtr)<br />
+      ^~~~~~~~~~~~~~~~~~~~<br />
+In file included from C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\main.cpp:12:0:<br />
 C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h: In member function 'int BinarySearchTree&lt;ItemType&gt;::getNumberOfNodes() const':<br />
-<font color="#0000ff">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:149:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
- }<br />
- ^<br />
-C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h: In member function 'bool BinarySearchTree&lt;ItemType&gt;::add(const ItemType&amp;)':<br />
-<font color="#0000ff">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:169:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
+<font color="#0000ff">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:188:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
  }<br />
  ^<br />
 C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h: In member function 'bool BinarySearchTree&lt;ItemType&gt;::remove(const ItemType&amp;)':<br />
-<font color="#0000ff">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:175:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
+<font color="#0000ff">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:262:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
  }<br />
  ^<br />
 C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h: In member function 'bool BinarySearchTree&lt;ItemType&gt;::contains(const ItemType&amp;) const':<br />
-<font color="#0000ff">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:194:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
+<font color="#0000ff">C:\Users\Fimey\Documents\GitHub\CS302\Homework 4\hw4\BinarySearchTree.h:298:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
  }<br />
  ^<br />
-Output file is bin\Debug\hw4.exe with size 60.36 KB<br />
-<font color="#0000ff">Process terminated with status 0 (0 minute(s), 1 second(s))</font><br />
-<font color="#0000ff">0 error(s), 6 warning(s) (0 minute(s), 1 second(s))</font><br />
+<font color="#a00000">Process terminated with status 1 (0 minute(s), 0 second(s))</font><br />
+<font color="#a00000">10 error(s), 4 warning(s) (0 minute(s), 0 second(s))</font><br />
 </tt>
 </body>
 </html>
