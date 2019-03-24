@@ -24,10 +24,6 @@ protected:
 // Protected Utility Methods Section:
 // Recursive helper methods for the public methods.
 //------------------------------------------------------------
-// Places a given new node at its proper position in this binary
-// search tree.
-    auto placeNode(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
-                   std::shared_ptr<BinaryNode<ItemType>> newNode);
 
 // Removes the given target value from the tree while maintaining a
 // binary search tree.
@@ -45,20 +41,22 @@ protected:
     auto removeLeftmostNode(std::shared_ptr<BinaryNode<ItemType>>subTreePtr,
                             ItemType& inorderSuccessor);
 
-// Returns a pointer to the node containing the given value,
-// or nullptr if not found.
-    auto findNode(std::shared_ptr<BinaryNode<ItemType>> treePtr,
-                  const ItemType& target) const;
-
     auto copyTree(const std::shared_ptr<BinaryNode<ItemType>> oldTreeRootPtr) const;
 
     int getHeightHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const;
 
     std::shared_ptr<BinaryNode<ItemType>>
-                    balancedAdd(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
-                     std::shared_ptr<BinaryNode<ItemType>> newNodePtr);
+                                       sortedAdd(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
+                                               std::shared_ptr<BinaryNode<ItemType>> newNodePtr);
 
     auto destroyTree(std::shared_ptr<BinaryNode<ItemType>> subTreePtr);
+
+
+    void preorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const;
+
+    void inorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const;
+
+    void postorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const;
 
 public:
 //------------------------------------------------------------
@@ -84,17 +82,15 @@ public:
     bool remove(const ItemType& target);
     void clear();
 
-    ItemType getEntry(const ItemType& anEntry) const throw(std::logic_error);
-    bool contains(const ItemType& anEntry) const;
-
     void randGen();
 
 //------------------------------------------------------------
 // Public Traversals Section.
 //------------------------------------------------------------
-    void preorderTraverse(void visit(ItemType&)) const;
-    void inorderTraverse(void visit(ItemType&)) const;
-    void postorderTraverse(void visit(ItemType&)) const;
+
+    void preorderTraverse() const;
+    void inorderTraverse() const;
+    void postorderTraverse() const;
 
 //------------------------------------------------------------
 // Overloaded Operator Section.
@@ -114,17 +110,6 @@ public:
 * @param
 **/
 template<class ItemType>
-auto BinarySearchTree<ItemType>::placeNode(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
-               std::shared_ptr<BinaryNode<ItemType>> newNode)
-{
-
-}
-
-/**
-*
-* @param
-**/
-template<class ItemType>
 auto BinarySearchTree<ItemType>::removeNode(std::shared_ptr<BinaryNode<ItemType>> nodePtr)
 {
     nodePtr = nullptr;
@@ -138,18 +123,7 @@ auto BinarySearchTree<ItemType>::removeNode(std::shared_ptr<BinaryNode<ItemType>
 **/
 template<class ItemType>
 auto BinarySearchTree<ItemType>::removeLeftmostNode(std::shared_ptr<BinaryNode<ItemType>>subTreePtr,
-                        ItemType& inorderSuccessor)
-{
-
-}
-
-/**
-*
-* @param
-**/
-template<class ItemType>
-auto BinarySearchTree<ItemType>::findNode(std::shared_ptr<BinaryNode<ItemType>> treePtr,
-              const ItemType& target) const
+        ItemType& inorderSuccessor)
 {
 
 }
@@ -187,7 +161,7 @@ getHeightHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
         return 0;
 
     return 1 + std::max(getHeightHelper(subTreePtr->getLeftChildPtr()),
-                   getHeightHelper(subTreePtr->getRightChildPtr()));
+                        getHeightHelper(subTreePtr->getRightChildPtr()));
 }
 
 /**
@@ -196,27 +170,25 @@ getHeightHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 **/
 template<class ItemType>
 std::shared_ptr<BinaryNode<ItemType>>
-        BinarySearchTree<ItemType>::balancedAdd(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
-        std::shared_ptr<BinaryNode<ItemType>> newNodePtr)
+                                   BinarySearchTree<ItemType>::
+                                   sortedAdd(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
+                                           std::shared_ptr<BinaryNode<ItemType>> newNodePtr)
 {
-    if(isEmpty())
-        rootPtr = newNodePtr;
+    std::shared_ptr<BinaryNode<ItemType>> tempPtr;
+
+    if(subTreePtr == nullptr)
+    {
+        return newNodePtr;
+    }
+    else if(subTreePtr->getItem() > newNodePtr->getItem())
+    {
+        tempPtr = sortedAdd(subTreePtr->getLeftChildPtr(), newNodePtr);
+        subTreePtr->setLeftChildPtr(tempPtr);
+    }
     else
     {
-        auto leftPtr = rootPtr->getLeftChildPtr();
-        auto rightPtr = rootPtr->getRightChildPtr();
-
-        if (getHeightHelper(leftPtr) > getHeightHelper(rightPtr))
-        {
-            rightPtr = balancedAdd(rightPtr, newNodePtr);
-            subTreePtr->setRightChildPtr(rightPtr);
-        }
-        else
-        {
-            leftPtr = balancedAdd(leftPtr, newNodePtr);
-            subTreePtr->setLeftChildPtr(leftPtr);
-        }
-        return subTreePtr;
+        tempPtr = sortedAdd(subTreePtr->getRightChildPtr(), newNodePtr);
+        subTreePtr->setRightChildPtr(tempPtr);
     }
 
     return subTreePtr;
@@ -356,8 +328,9 @@ void BinarySearchTree<ItemType>::setRootData(const ItemType& newData)
 template<class ItemType>
 bool BinarySearchTree<ItemType>::add(const ItemType& newEntry)
 {
+
     auto newNodePtr = std::make_shared<BinaryNode<ItemType>>(newEntry);
-    rootPtr = balancedAdd(rootPtr, newNodePtr);
+    rootPtr = sortedAdd(rootPtr, newNodePtr);
 
     return true;
 }
@@ -415,42 +388,6 @@ void BinarySearchTree<ItemType>::clear()
     }
 }
 
-
-/**
-*
-* @param
-**/
-template<class ItemType>
-ItemType BinarySearchTree<ItemType>::getEntry(const ItemType& anEntry) const throw(std::logic_error)
-{
-
-}
-
-/**
-*
-* @param
-**/
-template<class ItemType>
-bool BinarySearchTree<ItemType>::contains(const ItemType& anEntry) const
-{
-    if(rootPtr == nullptr)
-    {
-        return false;
-    }else if (rootPtr->getItem() == anEntry)
-    {
-        rootPtr = removeNode(rootPtr);
-        return true;
-    }else if (rootPtr->getItem() > anEntry)
-    {
-        auto tempPtr = rootPtr->getLeftChildPtr();
-        return tempPtr->contains(anEntry);
-    }else
-    {
-        auto tempPtr = rootPtr->getRightChildPtr();
-        return tempPtr->contains(anEntry);
-    }
-}
-
 /**
 *
 * @param
@@ -463,7 +400,7 @@ void BinarySearchTree<ItemType>::randGen()
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(0, 200);
 
-    for(int i = 0;i < 100; i++)
+    for(int i = 0; i < 5; i++)
     {
         add(dis(gen));
     }
@@ -480,8 +417,21 @@ void BinarySearchTree<ItemType>::randGen()
 * @param
 **/
 template<class ItemType>
-void BinarySearchTree<ItemType>::preorderTraverse(void visit(ItemType&)) const
+void BinarySearchTree<ItemType>::
+preorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 {
+    if(isEmpty())
+    {
+        std::cout << "Empty" << std::endl;
+        return;
+    }
+
+
+    std::cout << subTreePtr->getItem() << " ";
+
+    preorderHelper(subTreePtr->getLeftChildPtr());
+
+    preorderHelper(subTreePtr->getRightChildPtr());
 
 }
 
@@ -490,8 +440,21 @@ void BinarySearchTree<ItemType>::preorderTraverse(void visit(ItemType&)) const
 * @param
 **/
 template<class ItemType>
-void BinarySearchTree<ItemType>::inorderTraverse(void visit(ItemType&)) const
+void BinarySearchTree<ItemType>::
+inorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 {
+
+    if(isEmpty())
+    {
+        std::cout << "Empty" << std::endl;
+        return;
+    }
+
+    inorderHelper(subTreePtr->getLeftChildPtr());
+
+    std::cout << subTreePtr->getItem() << " ";
+
+    inorderHelper(subTreePtr->getRightChildPtr());
 
 }
 
@@ -500,10 +463,60 @@ void BinarySearchTree<ItemType>::inorderTraverse(void visit(ItemType&)) const
 * @param
 **/
 template<class ItemType>
-void BinarySearchTree<ItemType>::postorderTraverse(void visit(ItemType&)) const
+void BinarySearchTree<ItemType>::
+postorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 {
+    if(isEmpty())
+    {
+        std::cout << "Empty" << std::endl;
+        return;
+    }
+
+    postorderHelper(subTreePtr->getLeftChildPtr());
+
+    postorderHelper(subTreePtr->getRightChildPtr());
+
+    std::cout << subTreePtr->getItem() << " ";
 
 }
+
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+void BinarySearchTree<ItemType>::preorderTraverse() const
+{
+    std::cout << "===== Preorder =====" << std::endl;
+
+    preorderHelper(rootPtr);
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+void BinarySearchTree<ItemType>::inorderTraverse() const
+{
+    std::cout << "===== Inorder =====" << std::endl;
+
+    inorderHelper(rootPtr);
+}
+
+/**
+*
+* @param
+**/
+template<class ItemType>
+void BinarySearchTree<ItemType>::postorderTraverse() const
+{
+    std::cout << "===== Postorder =====" << std::endl;
+
+    postorderHelper(rootPtr);
+}
+
 
 //------------------------------------------------------------
 // Overloaded Operator Section.

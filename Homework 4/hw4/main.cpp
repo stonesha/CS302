@@ -16,8 +16,17 @@ int main()
 {
 
     BinarySearchTree<int> test;
+    //initialization for random ints
 
     test.randGen();
+
+    std::cout << "Height: " << test.getHeight() << std::endl;
+
+    /*
+    test.preorderTraverse();
+    test.postorderTraverse();
+    test.inorderTraverse();
+    */
 
     return 0;
 }
