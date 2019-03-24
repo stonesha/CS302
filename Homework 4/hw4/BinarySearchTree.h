@@ -4,6 +4,7 @@
  * @date March, 2019
  * @brief Class file for BinarySearchTree, self-contained header
  */
+
 #ifndef BINARY_SEARCH_TREE_
 #define BINARY_SEARCH_TREE_
 
@@ -70,8 +71,9 @@ public:
 //------------------------------------------------------------
 
 /**
-*
-* @param
+* Adds a ADT to the BST
+* @param    ItemType/ADT    newEntry
+* @return   boolean: always returns true
 **/
 template<class ItemType>
 bool BinarySearchTree<ItemType>::add(const ItemType& newEntry)
@@ -84,8 +86,10 @@ bool BinarySearchTree<ItemType>::add(const ItemType& newEntry)
 }
 
 /**
-*
-* @param
+* Places a node in a sorted fashion into the BST
+* @param    std::shared_ptr<BinaryNode<ItemType>>   subTreePtr
+* @param    std::shared_ptr<BinaryNode<ItemType>>   newNodePtr
+* @return   std::shared_ptr<BinaryNode<ItemType>>
 **/
 template<class ItemType>
 std::shared_ptr<BinaryNode<ItemType>>
@@ -114,8 +118,9 @@ std::shared_ptr<BinaryNode<ItemType>>
 }
 
 /**
-*
-* @param
+* Helper to calculate height
+* @param    std::shared_ptr<BinaryNode<ItemType>> subTreePtr
+* @return   int
 **/
 template<class ItemType>
 int BinarySearchTree<ItemType>::heightHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr)
@@ -132,14 +137,17 @@ int BinarySearchTree<ItemType>::heightHelper(std::shared_ptr<BinaryNode<ItemType
 //------------------------------------------------------------
 
 /**
-* Constructor for BinarySearchTree sets rootPtr to nullptr
-* indicating an empty tree
+* Constructor, sets rootPtr to nullptr
 **/
 template<class ItemType>
 BinarySearchTree<ItemType>::BinarySearchTree() : rootPtr(nullptr)
 {
 }//end constructor
 
+/**
+* Destructor, doesn't do anything since we are using
+* smart pointers
+**/
 template<class ItemType>
 BinarySearchTree<ItemType>::~BinarySearchTree()
 {
@@ -149,8 +157,8 @@ BinarySearchTree<ItemType>::~BinarySearchTree()
 // Public Methods Section.
 //------------------------------------------------------------
 /**
-*
-* @param
+* Calls heightHelper and returns the value
+* @return   int
 **/
 template<class ItemType>
 int BinarySearchTree<ItemType>::getHeight()
@@ -159,8 +167,8 @@ int BinarySearchTree<ItemType>::getHeight()
 }
 
 /**
-*
-* @param
+* checks if BST is empty
+* @return   boolean, true if empty, false if not empty
 **/
 template<class ItemType>
 bool BinarySearchTree<ItemType>::isEmpty() const
@@ -173,8 +181,8 @@ bool BinarySearchTree<ItemType>::isEmpty() const
 //------------------------------------------------------------
 
 /**
-*
-* @param
+* helper for preorder, recursively prints values
+* @param    std::shared_ptr<BinaryNode<ItemType>>
 **/
 template<class ItemType>
 void BinarySearchTree<ItemType>::
@@ -193,8 +201,8 @@ preorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 }
 
 /**
-*
-* @param
+* helper for inorder, recursively prints values
+* @param    std::shared_ptr<BinaryNode<ItemType>>
 **/
 template<class ItemType>
 void BinarySearchTree<ItemType>::
@@ -213,8 +221,8 @@ inorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 }
 
 /**
-*
-* @param
+* helper for postorder, recursively prints values
+* @param    std::shared_ptr<BinaryNode<ItemType>>
 **/
 template<class ItemType>
 void BinarySearchTree<ItemType>::
@@ -234,8 +242,7 @@ postorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 
 
 /**
-*
-* @param
+* uses preorderHelper to print values recursively
 **/
 template<class ItemType>
 void BinarySearchTree<ItemType>::preorderTraverse() const
@@ -246,8 +253,7 @@ void BinarySearchTree<ItemType>::preorderTraverse() const
 }
 
 /**
-*
-* @param
+* uses inorderHelper to print values recursively
 **/
 template<class ItemType>
 void BinarySearchTree<ItemType>::inorderTraverse() const
@@ -258,8 +264,7 @@ void BinarySearchTree<ItemType>::inorderTraverse() const
 }
 
 /**
-*
-* @param
+* uses postorderHelper to print values recursively
 **/
 template<class ItemType>
 void BinarySearchTree<ItemType>::postorderTraverse() const
