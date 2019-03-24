@@ -6,7 +6,9 @@
  */
 
 #include <iostream>
-#include <memory>
+#include <random> //random_device, mt199937, uniform_int_distribution
+#include <vector> //std::vector, push_back()
+#include <chrono> // std::chrono::system_clock
 
 #include "BinaryNode.h"
 #include "BinarySearchTree.h"
@@ -17,9 +19,7 @@ int main()
 {
 
     BinarySearchTree<int> test;
-    //initialization for random ints
 
-    //randGen(test);
     randGen(test);
 
     std::cout << "===== Height =====" << std::endl
@@ -37,12 +37,16 @@ int main()
 void randGen(BinarySearchTree<int> &bst)
 {
     //initialization for random ints
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0, 200);
+    std::vector<int> randNum;
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+
+    for(int i = 0;i < 200; i++)
+        randNum.push_back(i);
+
+    std::shuffle(randNum.begin(), randNum.end(), std::default_random_engine(seed));
 
     for(int i = 0; i < 100; i++)
     {
-        bst.add(dis(gen));
+        bst.add(randNum[i]);
     }
 }

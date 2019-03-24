@@ -53,7 +53,6 @@ BinaryNode<ItemType>::BinaryNode(const ItemType& anItem) :
     leftChildPtr(nullptr),
     rightChildPtr(nullptr)
 {
-
 }
 
 template<class ItemType>
