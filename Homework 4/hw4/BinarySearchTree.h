@@ -36,6 +36,8 @@ protected:
 
     void postorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const;
 
+    int heightHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr);
+
 public:
 //------------------------------------------------------------
 // Constructor and Destructor Section.
@@ -46,6 +48,7 @@ public:
 //------------------------------------------------------------
 // Public Methods Section.
 //------------------------------------------------------------
+    int getHeight();
     bool isEmpty() const;
 
     bool add(const ItemType& newEntry);
@@ -111,6 +114,20 @@ std::shared_ptr<BinaryNode<ItemType>>
     return subTreePtr;
 }
 
+/**
+*
+* @param
+**/
+template<class ItemType>
+int BinarySearchTree<ItemType>::heightHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr)
+{
+    if(subTreePtr == nullptr)
+        return 1;
+
+    return 1 + std::max(heightHelper(subTreePtr->getLeftChildPtr()),
+                   heightHelper(subTreePtr->getRightChildPtr()));
+}
+
 //------------------------------------------------------------
 // Constructor and Destructor Section.
 //------------------------------------------------------------
@@ -132,6 +149,15 @@ BinarySearchTree<ItemType>::~BinarySearchTree()
 //------------------------------------------------------------
 // Public Methods Section.
 //------------------------------------------------------------
+/**
+*
+* @param
+**/
+template<class ItemType>
+int BinarySearchTree<ItemType>::getHeight()
+{
+    return heightHelper(rootPtr);
+}
 
 /**
 *

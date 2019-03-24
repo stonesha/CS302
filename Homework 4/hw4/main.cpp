@@ -22,6 +22,9 @@ int main()
     //randGen(test);
     randGen(test);
 
+    std::cout << "===== Height =====" << std::endl
+        << test.getHeight() << std::endl;
+
     test.preorderTraverse();
     test.postorderTraverse();
     test.inorderTraverse();
