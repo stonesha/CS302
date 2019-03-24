@@ -2,13 +2,13 @@
 1552633457 source:c:\users\fimey\documents\github\cs302\homework 4\hw4\binarynode.cpp
 	"BinaryNode.h"
 
-1552701935 c:\users\fimey\documents\github\cs302\homework 4\hw4\binarynode.h
+1553420465 c:\users\fimey\documents\github\cs302\homework 4\hw4\binarynode.h
 	<memory>
 
 1552633457 c:\users\fimey\documents\github\cs302\homework 4\hw4\binarynode.cpp
 	"BinaryNode.h"
 
-1553409768 source:c:\users\fimey\documents\github\cs302\homework 4\hw4\main.cpp
+1553420948 source:c:\users\fimey\documents\github\cs302\homework 4\hw4\main.cpp
 	<iostream>
 	<memory>
 	"BinaryNode.h"
@@ -16,7 +16,7 @@
 
 1552634837 c:\users\fimey\documents\github\cs302\homework 4\hw4\binarytreeinterface.h
 
-1553416174 c:\users\fimey\documents\github\cs302\homework 4\hw4\binarysearchtree.h
+1553421059 c:\users\fimey\documents\github\cs302\homework 4\hw4\binarysearchtree.h
 	<memory>
 	<stdexcept>
 	<random>

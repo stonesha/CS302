@@ -19,15 +19,13 @@ int main()
     BinarySearchTree<int> test;
     //initialization for random ints
 
+    //randGen(test);
     randGen(test);
 
-    std::cout << "Height: " << test.getHeight() << std::endl;
-
-    /*
     test.preorderTraverse();
     test.postorderTraverse();
     test.inorderTraverse();
-    */
+
 
     return 0;
 }
@@ -40,7 +38,7 @@ void randGen(BinarySearchTree<int> &bst)
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(0, 200);
 
-    for(int i = 0; i < 5; i++)
+    for(int i = 0; i < 100; i++)
     {
         bst.add(dis(gen));
     }
