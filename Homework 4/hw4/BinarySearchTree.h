@@ -221,6 +221,7 @@ template<class ItemType>
 void BinarySearchTree<ItemType>::
 postorderHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 {
+
     if(subTreePtr == nullptr)
         return;
 
