@@ -5,7 +5,7 @@ I used smart pointers for my implementation and removed alot of the methods that
 I didn't see a need to include them as all we had to do was fill a BST with random unique values and add them to the tree.
 
 ## Tests
-#Test 1
+### Test 1
 ```
 ===== Height =====
 17
@@ -18,7 +18,7 @@ I didn't see a need to include them as all we had to do was fill a BST with rand
 0 1 3 5 6 7 8 10 11 12 14 17 18 20 21 25 27 28 33 36 38 39 40 41 46 48 50 52 53 55 56 59 60 62 67 69 73 75 76 78 80 85 87 90 91 95 97 101 103 105 106 108 112 115 118 119 120 121 122 123 124 125 127 128 129 131 132 133 138 140 144 146 148 149 151 152 153 154 155 156 158 159 161 162 165 167 168 171 172 173 176 177 184 185 186 187 190 192 198 199
 ```
 
-#Test 2
+### Test 2
 ```
 ===== Height =====
 14
@@ -31,7 +31,7 @@ I didn't see a need to include them as all we had to do was fill a BST with rand
 0 8 9 12 15 16 17 18 19 25 30 31 35 38 41 42 44 48 50 51 52 53 55 56 57 60 61 63 66 67 68 69 70 72 76 78 79 81 83 84 86 88 89 91 92 93 95 96 97 98 99 102 104 106 108 112 113 115 117 119 121 122 130 134 135 137 138 140 141 142 143 144 146 147 149 150 151 154 156 158 159 160 161 166 168 170 171 173 174 175 176 178 182 183 184 187 188 192 193 199
 ```
 
-#Test 3
+### Test 3
 ```
 ===== Height =====
 14
