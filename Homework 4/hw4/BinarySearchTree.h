@@ -69,7 +69,7 @@ public:
 //------------------------------------------------------------
     bool isEmpty() const;
     int getHeight() const;
-    int getNumberOfNodes() const;
+    int getNumberOfNodes(const std::shared_ptr<BinaryNode<ItemType>> root) const;
 
     ItemType getRootData() const throw(std::logic_error);
     void setRootData(const ItemType& newData);
@@ -182,9 +182,18 @@ getHeightHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 * @param
 **/
 template<class ItemType>
-int BinarySearchTree<ItemType>::getNumberOfNodes() const
+int BinarySearchTree<ItemType>::getNumberOfNodes(const std::shared_ptr<BinaryNode<ItemType>> root) const
 {
 
+    int nodeNum = 1;
+
+    if(root->left != nullptr)
+        nodeNum += getNumberofNodes(root->leftChildPtr);
+
+    if(root->right != nullptr)
+        nodeNum += getNumberOfNodes(root->rightChildPtr);
+
+    return nodeNum;
 }
 
 
@@ -259,6 +268,31 @@ template<class ItemType>
 bool BinarySearchTree<ItemType>::remove(const ItemType& target)
 {
 
+    if (rootPtr == nullptr)
+    {
+        return false;
+
+    }else if(rootPtr->getItem() == target)
+    {
+
+        rootPtr = removeNode(rootPtr);
+        return true;
+
+    }else if (rootPtr->getItem() > target)
+    {
+
+        auto tempPtr = rootPtr->getLeftChildPtr();
+        tempPtr = remove(target);
+        rootPtr->setLeftChildPtr(tempPtr);
+
+    }else
+    {
+
+        auto tempPtr = rootPtr->getRightChildPtr();
+        tempPtr = remove(target);
+        rootPtr->setRightChildPtr(tempPtr);
+
+    }
 }
 
 /**

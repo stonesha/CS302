@@ -34,7 +34,6 @@
 		</Compiler>
 		<Unit filename="BinaryNode.h" />
 		<Unit filename="BinarySearchTree.h" />
-		<Unit filename="BinaryTreeInterface.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
