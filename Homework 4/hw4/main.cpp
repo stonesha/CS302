@@ -15,5 +15,10 @@
 int main()
 {
 
+    BinarySearchTree<int> test;
+
+    test.randGen();
+
     return 0;
 }
+
