@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1541536561 source:/home/fimey/googledrive/University of Reno/CS 202/PAX_Sha_Stone/DataType.cpp
+	"DataType.h"
+	<cstdlib>
+
+1541536561 /home/fimey/googledrive/University of Reno/CS 202/PAX_Sha_Stone/DataType.h
+	<iostream>
+
+1541536561 source:/home/fimey/googledrive/University of Reno/CS 202/PAX_Sha_Stone/projx/DataType.cpp
+	"DataType.h"
+	<cstdlib>
+
+1541536561 /home/fimey/googledrive/University of Reno/CS 202/PAX_Sha_Stone/projx/DataType.h
+	<iostream>
+

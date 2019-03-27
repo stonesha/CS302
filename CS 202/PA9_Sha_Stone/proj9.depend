@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1542586342 source:c:\users\fimey\google drive\university of reno\cs 202\proj9\arrayqueue.cpp
+	"ArrayQueue.h"
+
+1542584427 c:\users\fimey\google drive\university of reno\cs 202\proj9\arrayqueue.h
+	<iostream>
+	"DataType.h"
+
+1542501365 source:c:\users\fimey\google drive\university of reno\cs 202\proj9\main.cpp
+	<iostream>
+	"NodeQueue.h"
+	"ArrayQueue.h"
+
+1542586776 c:\users\fimey\google drive\university of reno\cs 202\proj9\nodequeue.h
+	<iostream>
+	"DataType.h"
+
+1542498009 source:c:\users\fimey\google drive\university of reno\cs 202\proj9\nodequeue.cpp
+	"NodeQueue.h"
+
+1542349878 c:\users\fimey\google drive\university of reno\cs 202\proj9\datatype.h
+	<iostream>
+
+1542243785 source:c:\users\fimey\google drive\university of reno\cs 202\proj9\datatype.cpp
+	"DataType.h"
+	<cstdlib>
+

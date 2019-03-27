@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1544503424 source:c:\users\fimey\google drive\university of reno\cs 202\proj11\proj11.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	"VectorRecursion.h"
+
+1544503693 c:\users\fimey\google drive\university of reno\cs 202\proj11\vectorrecursion.h
+	<vector>
+
+1544505952 source:c:\users\fimey\desktop\proj11\proj11.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	"VectorRecursion.h"
+
+1544506253 c:\users\fimey\desktop\proj11\vectorrecursion.h
+	<vector>
+

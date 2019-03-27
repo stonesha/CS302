@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1538226198 source:c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\proj4\proj4.cpp
+	<iostream>
+	<fstream>
+	"proj4.h"
+	"Sensor.h"
+
+1538226234 c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\proj4\proj4.h
+	<iostream>
+
+1538226163 c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\proj4\sensor.h
+
+1538226123 source:c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\proj4\sensor.cpp
+	"Sensor.h"
+	"proj4.h"
+
+1538555634 source:c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\proj4.cpp
+	"func.h"
+	"Sensor.h"
+	"Agency.h"
+	"Car.h"
+
+1538553205 c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\sensor.h
+	"func.h"
+
+1538553184 source:c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\sensor.cpp
+	"Sensor.h"
+
+1538553205 c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\func.h
+	<iostream>
+	<fstream>
+
+1538545143 source:c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\func.cpp
+	"func.h"
+
+1538549605 source:c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\car.cpp
+	"Car.h"
+
+1538549663 c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\car.h
+	"func.h"
+	"Sensor.h"
+
+1538555745 source:c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\agency.cpp
+	"Agency.h"
+	"Sensor.h"
+
+1538535212 c:\users\fimey\google drive\university of reno\cs 202\pa4_sha_stone\agency.h
+	"func.h"
+	"Car.h"
+

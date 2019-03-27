@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1543194918 source:/home/fimey/Desktop/C++ Workspace/proj10/DataType.cpp
+	"DataType.h"
+	<cstdlib>
+
+1543640695 /home/fimey/Desktop/C++ Workspace/proj10/DataType.h
+	<iostream>
+
+1543763500 source:/home/fimey/Desktop/C++ Workspace/proj10/proj10.cpp
+	<iostream>
+	"ArrayStack.h"
+	"NodeStack.h"
+
+1543763345 /home/fimey/Desktop/C++ Workspace/proj10/ArrayStack.h
+	"DataType.h"
+
+1543764485 /home/fimey/Desktop/C++ Workspace/proj10/NodeStack.h
+	"DataType.h"
+
+1543828985 source:c:\users\fimey\google drive\university of reno\cs 202\proj10\datatype.cpp
+	"DataType.h"
+	<cstdlib>
+
+1543828955 c:\users\fimey\google drive\university of reno\cs 202\proj10\datatype.h
+	<iostream>
+
+1543988202 source:c:\users\fimey\google drive\university of reno\cs 202\proj10\proj10.cpp
+	<iostream>
+	"ArrayStack.h"
+	"NodeStack.h"
+
+1543988214 c:\users\fimey\google drive\university of reno\cs 202\proj10\arraystack.h
+	"DataType.h"
+
+1543988860 c:\users\fimey\google drive\university of reno\cs 202\proj10\nodestack.h
+	"DataType.h"
+

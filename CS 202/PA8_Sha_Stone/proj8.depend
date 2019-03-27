@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1542243785 source:c:\users\fimey\google drive\university of reno\cs 202\pa8_sha_stone\datatype.cpp
+	"DataType.h"
+	<cstdlib>
+
+1542349878 c:\users\fimey\google drive\university of reno\cs 202\pa8_sha_stone\datatype.h
+	<iostream>
+
+1542352554 source:c:\users\fimey\google drive\university of reno\cs 202\pa8_sha_stone\nodelist.cpp
+	"NodeList.h"
+
+1542231463 c:\users\fimey\google drive\university of reno\cs 202\pa8_sha_stone\nodelist.h
+	"DataType.h"
+
+1542351985 source:c:\users\fimey\google drive\university of reno\cs 202\pa8_sha_stone\proj8.cpp
+	<iostream>
+	"ArrayList.h"
+	"NodeList.h"
+
+1542237520 c:\users\fimey\google drive\university of reno\cs 202\pa8_sha_stone\arraylist.h
+	"DataType.h"
+
+1542351534 source:c:\users\fimey\google drive\university of reno\cs 202\pa8_sha_stone\arraylist.cpp
+	"ArrayList.h"
+

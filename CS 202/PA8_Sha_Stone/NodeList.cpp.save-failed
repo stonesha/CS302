@@ -1,0 +1,200 @@
+/**
+ * @brief  CS-202 Project 8 NodeList source
+ * @Author Stone Sha (stones@nevada.unr.edu)
+ * @date   November, 2018
+ *
+ * This file is the source file for the class NodeList
+ */
+#include "NodeList.h"
+
+NodeList::NodeList():m_head(NULL)
+{
+    std::cout << "NodeList Default c-tor" << std::endl;
+}							    		  //(1)
+
+NodeList::NodeList(size_t count, const DataType & value)		  //(2)
+{
+    m_head = new Node(value, NULL);
+    Node *temp = m_head;
+
+    //one less loop to save last for NULL
+    for(int i = 0;i < count - 1;i++)
+    {
+        temp->m_next = new Node(value, NULL);
+        temp=temp->m_next;
+    }
+    temp->m_next = NULL;
+
+    std::cout << "NodeList Parameterized c-tor" << std::endl;
+}
+
+NodeList::NodeList(const NodeList & other)					  //(3)
+{
+    if(other.m_head != NULL)
+    {
+        m_head = new Node(other.m_head->data(), NULL);
+
+        Node *temp1 = m_head;
+        Node *temp2 = other.m_head;
+
+        while(temp2->m_next != NULL)
+        {
+            temp2 = temp2->m_next;
+            temp1->m_next = new Node (temp2->data(), NULL);
+            temp1 = temp1->m_next;
+        }
+        temp1->m_next = NULL;
+    }
+    std::cout << "NodeList Copy c-tor" << std::endl;
+}
+
+NodeList::~NodeList()							   			  //(4)
+{
+    clear();
+}
+
+NodeList & NodeList::operator= (const NodeList & rhs)		  //(5)
+{
+    if (this == &rhs) return *this; //handles self assignment
+
+    Node *temp1 = m_head;
+    Node *temp2 = rhs.m_head;
+
+    if(this->size() < rhs.size())
+    {
+        clear();
+        DataType tempDat(0, 0.0);
+        NodeList tempNode(rhs.size(), tempDat);
+        temp1 = tempNode.m_head;
+    }
+
+    while(temp2->m_next != NULL)
+    {
+        temp1->m_data = temp2->data();
+        temp1 = temp1->m_next;
+        temp2 = temp2->m_next;
+    }
+
+    return *this;
+}
+
+Node * NodeList::front()						    		  //(6)
+{
+    if(m_head != NULL)
+    {
+        return m_head;
+    }
+    return NULL;
+}
+Node * NodeList::back()										  //(7)
+{
+    Node *temp = m_head;
+
+    while(temp->m_next != NULL)
+    {
+        temp = temp->m_next;
+    }
+    return temp;
+}
+
+Node * NodeList::find(const DataType & target, Node * & previous, const Node * start/* = NULL*/)			  //(8)
+{
+    Node *temp = m_head;
+    Node *temp_next = temp->m_next;
+    while(temp->m_next != NULL && temp != NULL)
+    {
+        if(temp_next->data() == target)
+        {
+            if(temp != NULL)
+            {
+                previous = temp;
+            }else
+            {
+                previous = NULL;
+            }
+            return temp_next;
+        }
+    }
+    previous = NULL;
+    return NULL;
+}
+
+Node * NodeList::insertAfter(const DataType & target, const DataType & value)    		  //(9)
+{
+
+}
+
+
+Node * NodeList::insertBefore(const DataType & target, const DataType & value)   	  //(10)
+{
+
+}
+
+Node * NodeList::erase(const DataType & target) 			      //(11)
+{
+
+
+}
+
+DataType & NodeList::operator[] (size_t position)			  //(12a)
+{
+    Node *temp = m_head;
+    for(size_t i = 0;i < position; i++)
+    {
+        temp++;
+    }
+    return temp->data();
+}
+const DataType & NodeList::operator[] (size_t position) const  //(12b)
+{
+    Node *temp = m_head;
+    for(size_t i = 0;i < position; i++)
+    {
+        temp++;
+    }
+    return temp->data();
+}
+
+size_t NodeList::size() const								  //(13)
+{
+    size_t count = 0;
+    Node *temp = m_head;
+
+    while(temp != NULL)
+    {
+        count++;
+        temp = temp->m_next;
+    }
+    return count;
+}
+bool NodeList::empty() const									  //(14)
+{
+    if(m_head == NULL)
+    {
+        return true;
+    }else{ return false;}
+}
+void NodeList::clear()										  //(15)
+{
+    Node *temp1 = m_head;
+    Node *temp2 = m_head;
+
+    while(temp1 != NULL)
+    {
+        temp1 = temp1->m_next;
+        delete temp2;
+        temp2 = temp1;
+    }
+    m_head = NULL;
+}
+
+std::ostream & operator<<(std::ostream & os, const NodeList & nodeList)	  //(i)
+{
+    os << "{";
+    for(size_t i = 0;i < nodeList.size(); i++)
+    {
+        os << nodeList[i] << ", ";
+    }
+    os << "}" << std::endl;
+    return os;
+}

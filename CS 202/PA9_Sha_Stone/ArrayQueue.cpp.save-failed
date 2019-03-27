@@ -1,0 +1,88 @@
+#include "ArrayQueue.h"
+
+ArrayQueue::ArrayQueue() // (1)
+{
+    //ctor
+    m_front = 0;
+    m_back = ARRAY_MAX;
+    m_size = ARRAY_MAX;
+}
+
+ArrayQueue::ArrayQueue(size_t count, const DataType & value)        //(2)
+{
+    for(size_t i = 0; i < count; i++)
+    {
+        m_array[i] = value;
+    }
+    m_front = 0;
+    m_back = count;
+    m_size = count;
+}
+
+ArrayQueue& ArrayQueue::operator=(const ArrayQueue& rhs)
+{
+    if (this == &rhs)
+        return *this; // handle self assignment
+    //assignment operator
+    for(size_t i = 0; i < m_size; i++)
+    {
+        m_array[i] = rhs.m_array[i];
+    }
+    m_back = rhs.m_back;
+    m_size = rhs.m_size;
+
+    return *this;
+}
+
+DataType &ArrayQueue::front()                                       //(6a)
+{
+    return m_array[m_front];
+}
+const DataType &ArrayQueue::front() const                            //(6b)
+{
+    return m_array[m_front];
+}
+DataType &ArrayQueue::back()                                        //(7a)
+{
+    return m_array[m_back];
+}
+const DataType &ArrayQueue::back() const                             //(7b)
+{
+    return m_array[m_back];
+}
+
+void ArrayQueue::push(const DataType & value) //(8)
+{
+    if(m_size == ARRAY_MAX)
+    {
+        std::cout << "Array Full, can't push." << std::endl;
+        exit(1);
+    }
+
+}
+void ArrayQueue::pop()                                            //(9)
+{
+
+}
+
+size_t ArrayQueue::size() const          //(10)
+{
+
+}
+bool ArrayQueue::empty() const                                                                 //(11)
+{
+
+}
+bool ArrayQueue::full() const                                                             //(12)
+{
+
+}
+void ArrayQueue::clear()                                            //(13)
+{
+
+}
+
+void ArrayQueue::serialize(std::ostream & os) const                               //(14)
+{
+
+}

@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1539232065 source:c:\users\fimey\google drive\university of reno\cs 202\pa5_sha_stone\src\car.cpp
+	"Car.h"
+
+1539230828 c:\users\fimey\google drive\university of reno\cs 202\pa5_sha_stone\include\car.h
+	"Vehicle.h"
+
+1539230803 source:c:\users\fimey\google drive\university of reno\cs 202\pa5_sha_stone\src\vehicle.cpp
+	"Vehicle.h"
+
+1539230781 c:\users\fimey\google drive\university of reno\cs 202\pa5_sha_stone\include\vehicle.h
+	<iostream>
+	<string.h>
+
+1539134561 source:c:\users\fimey\google drive\university of reno\cs 202\pa5_sha_stone\main.cpp
+	"Vehicle.h"
+	"Car.h"
+
+1537461462 source:c:\users\fimey\google drive\university of reno\cs 202\pa5_sha_stone\proj5.cpp
+	<iostream>
+	"Vehicle.h"
+	"Car.h"
+

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1540691366 source:c:\users\fimey\google drive\university of reno\cs 202\pa7_sha_stone\proj7\proj7.cpp
+	"MyString.h"
+
+1540683063 c:\users\fimey\google drive\university of reno\cs 202\pa7_sha_stone\proj7\mystring.h
+	<iostream>
+	<cstring>
+
+1540691533 source:c:\users\fimey\google drive\university of reno\cs 202\pa7_sha_stone\proj7\mystring.cpp
+	"MyString.h"
+

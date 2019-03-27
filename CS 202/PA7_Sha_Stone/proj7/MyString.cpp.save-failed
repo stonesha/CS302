@@ -1,0 +1,141 @@
+/**
+ * @brief  CS-202 Project 7 MyString class source
+ * @Author Stone Sha (stones@nevada.unr.edu)
+ * @date   October, 2018
+ *
+ * This file is the source file for MyString.h
+ */
+
+#include "MyString.h"
+
+//PUBLIC
+//CONSTRUCTORS/DECONSTRUCTORS
+MyString::MyString()
+{
+    m_size = MAX_STRING_SIZE;
+    buffer_allocate(m_size);
+}			            //(1)
+MyString::MyString(const char * str)
+{
+    m_size = strlen(str) + 1;
+    buffer_allocate(m_size);
+    strcpy(m_buffer, str);
+}					   //(2)
+MyString::MyString(const MyString & other_myStr)
+{
+    m_size = other_myStr.size();
+    buffer_allocate(m_size);
+    strcpy(m_buffer, other_myStr.m_buffer);
+}			   //(3)
+MyString::~MyString()
+{
+    buffer_deallocate();
+}						   //(4)
+
+//METHODS
+size_t MyString::size() const
+{
+    return m_size;
+}				           //(5)
+size_t MyString::length() const
+{
+    return strlen(m_buffer);
+}					   //(6)
+const char * MyString::c_str() const
+{
+    char const *charPtr = m_buffer;
+
+    return charPtr;
+}					   //(7)
+
+//OPERATOR OVERLOADS
+bool MyString::operator== (const MyString & other_myStr) const
+{
+    int test = strcmp(m_buffer, other_myStr.m_buffer);
+
+    if(test == 0)
+    {
+        return true;
+    }
+    return false;
+}           //(8)
+MyString & MyString::operator= (const MyString & other_myStr)
+{
+    m_size = other_myStr.m_size;
+    buffer_allocate(m_size);
+    strcpy(m_buffer, other_myStr.m_buffer);
+
+    return *this;
+}	           //(9)
+MyString MyString::operator+ (const MyString & other_myStr) const
+{
+    //int len1 = strlen(m_buffer);
+    //int len2 = strlen(other_myStr.m_buffer);
+    //int finallen = len1 + len2;
+
+    //char temp[finallen];
+
+    //strcpy(temp, strcat(m_buffer, other_myStr.m_buffer));
+
+    //MyString rhs(temp);
+
+    strcat(m_buffer, other_myStr.m_buffer);
+
+    return *this;
+}           //(10)
+char & MyString::operator[] (size_t index)
+{
+    return m_buffer[index];
+}				   //(11a)
+const char & MyString::operator[] (size_t index) const
+{
+    return m_buffer[index];
+}			   //(11b)
+
+std::ostream & operator<<(std::ostream & os, const MyString & myStr)
+{
+    cout << myStr.m_buffer ;
+
+    return os;
+}   //(12)
+
+//PRIVATE -------------------------
+void MyString::buffer_deallocate()
+{
+    delete [] m_buffer;
+    for(size_t i = 0;i < m_size;i++)
+    {
+        strcpy(*m_buffer[i], NULL);
+    }
+}					    //(13)
+
+void MyString::buffer_allocate(size_t size)
+{
+    m_buffer = NULL;
+
+    m_buffer = new char[size];
+
+    //checks for allocation failure and success
+    if(m_buffer)
+    {
+        for(size_t i = 0;i < size;i++)
+        {
+            m_buffer[i] = NULL;
+        }
+
+        //cout << "Memory allocation successful." << endl;
+
+    }else if(!m_buffer)
+    {
+        delete [] m_buffer;
+
+        for(size_t i = 0;i < size;i++)
+        {
+            m_buffer[i] = NULL;
+        }
+
+        //cout << "Memory allocation unsuccessful." << endl;
+    }
+
+}
+

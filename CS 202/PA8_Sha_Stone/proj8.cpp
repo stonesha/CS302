@@ -1,0 +1,112 @@
+/**
+ * @brief  CS-202 Project 8 Test driver
+ * @Author Stone Sha (stones@nevada.unr.edu)
+ * @date   November, 2018
+ *
+ * This file is the test driver for Project 8
+ */
+
+#include <iostream>
+
+#include "ArrayList.h"
+#include "NodeList.h"
+
+using namespace std;
+
+int main(){
+
+    //testing default ctors ------------------------------------
+    cout << "---------Testing Default Values---------" << endl;
+    DataType datDef;
+    cout << "Default Datatype is equal to " << datDef << endl << endl;
+
+    ArrayList arrDef;
+    cout << "Default ArrayList is equal to" << arrDef << endl;
+
+    NodeList nodeDef;
+    cout << "Default NodeList is equal to" << nodeDef << endl;
+
+    //testing parameterized ctors ------------------------------------
+    cout << endl << "---------Testing Parameterized Values---------" << endl;
+    DataType datPar(269, 420.36);
+    cout << "Parameterized Datatype is equal to " << datPar << endl << endl;
+
+    ArrayList arrPar(5, datPar);
+    cout << "Parameterized ArrayList is equal to" << arrPar << endl;
+
+    NodeList nodePar(5, datPar);
+    cout << "Parameterized NodeList is equal to" << nodePar << endl;
+
+    //testing copy ctor ------------------------------------
+    cout << endl << "---------Testing Copy Values---------" << endl;
+    DataType datCopy(datPar);
+    cout << "Copied Datatype is equal to " << datCopy << endl << endl;
+
+    ArrayList arrCopy(arrPar);
+    cout << "Copied ArrayList is equal to" << arrCopy << endl;
+
+    NodeList nodeCopy(nodePar);
+    cout << "Copied NodeList is equal to" << nodeCopy << endl;
+
+    //assignment operator ------------------------------------
+    cout << endl << "---------Testing Assigned Values---------" << endl;
+    DataType datNew(99, 999.99);
+    cout << "New Datatype is equal to " << datNew << endl << endl;
+    ArrayList arrNew(5, datNew);
+    cout << "New ArrayList is equal to" << arrNew << endl;
+    NodeList nodeNew(5, datNew);
+    cout << "New NodeList is equal to" << nodeNew << endl;
+
+    datNew = datCopy;
+    arrNew = arrCopy;
+    nodeNew = nodeCopy;
+
+    cout << "New Datatype is now equal to " << datNew << endl << endl;
+    cout << "New ArrayList is now equal to" << arrNew << endl;
+    cout << "New NodeList is now equal to" << nodeNew << endl;
+
+    //testing for inserts and delete------------------------------------
+    cout << endl << "---------Testing Insert After and Before---------" << endl;
+    DataType insertDat(100, 10.2);
+    cout << "Inserted Datatype is equal to " << insertDat << endl << endl;
+
+    arrNew.insertAfter(datNew, insertDat);
+    cout << "Updated ArrayList is now equal to" << arrNew << endl;
+    nodeNew.insertAfter(datNew, insertDat);
+    cout << "Updated NodeList is now equal to" << nodeNew << endl;
+
+    //nodeNew.erase(datNew); // isn't working
+    //cout << "Deleted NodeList is now equal to" << nodeNew << endl;
+
+    //testing for find, front and back----------------------------
+    cout << endl << "---------Testing front and back---------" << endl;
+    //cout << arrNew.find(insertDat, insertDat, NULL); can't figure out how to use this
+    cout << arrNew.front();
+    cout << nodeNew.back();
+
+    //testing for null and deletion ------------------------------------
+    cout << endl << "---------Testing Null Assignment and Deletion---------" << endl;
+    DataType datNull(0, 0.0);
+    ArrayList *al_pt = new ArrayList(5, datNull);
+    NodeList *nl_pt = new NodeList(5, datNull);
+
+    delete al_pt;
+    al_pt = NULL;
+
+    delete nl_pt;
+    nl_pt = NULL;
+
+    //clearing ------------------------------------
+    cout << endl << "---------Testing clear() method---------" << endl;
+    arrDef.clear();
+    nodeDef.clear();
+    arrPar.clear();
+    nodePar.clear();
+    arrCopy.clear();
+    nodeCopy.clear();
+    arrNew.clear();
+    nodeNew.clear();
+
+  return 0;
+
+}
