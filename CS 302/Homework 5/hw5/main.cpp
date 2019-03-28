@@ -64,6 +64,7 @@ int main()
     cout <<  endl  << "=====Sorted Heap=====";
 
     printVec(v);
+    cout << endl;
 
     return 0;
 }
