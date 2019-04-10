@@ -1,6 +1,6 @@
 # Extra Credit Assignment for MATH 330
 
-##Prompt
+## Prompt
 
 Heading (i.e., direction) is measured in terms of degrees in the interval [0°,360°); airspeed (indicated/true — learn the difference between the two!) is measured in terms of knots (i.e., nautical miles per hour); altitude above mean sea level is measured in terms of feet; and outside air temperature is measured in terms of degrees Celsius.
 
@@ -11,3 +11,7 @@ With v, w, h, θ, φ, and T as your given data, write a computer program (using 
 As air density decreases with altitude and outside air temperature, and as an airspeed indicator is affected by air density, indicated airspeed will not be equal to true airspeed unless the aircraft is situated at mean sea level in the International Standard Atmosphere. Therefore, you must find out (using Wikipedia or any other resource) how air density changes with altitude and outside air temperature, and how readings taken from an airspeed indicator are affected by air density.
 
 This project will test your ability to handle vectors, as well as your knowledge of basic trigonometry, engineering, atmospheric science, and computer programming. You may work in groups of up to four people. The deadline for submission of your program is 12:00pm on May 14.
+
+## Sample Data
+
+https://i.imgur.com/Zg3JDlc.png
