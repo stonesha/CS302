@@ -1,4 +1,7 @@
 # depslib dependency file v1.0
-1554867717 source:c:\users\fimey\documents\github\unr-cs\math 330\flightcomputer\main.cpp
+1554870652 source:c:\users\fimey\documents\github\unr-cs\math 330\flightcomputer\main.cpp
 	<iostream>
+	"flightCompute.h"
+
+1554870806 c:\users\fimey\documents\github\unr-cs\math 330\flightcomputer\flightcompute.h
 
