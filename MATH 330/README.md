@@ -1,6 +1,6 @@
 # Extra Credit Assignment for MATH 330
 
-##Prompt
+## Prompt
 
 Heading (i.e., direction) is measured in terms of degrees in the interval [0°,360°); airspeed (indicated/true — learn the difference between the two!) is measured in terms of knots (i.e., nautical miles per hour); altitude above mean sea level is measured in terms of feet; and outside air temperature is measured in terms of degrees Celsius.
 
