@@ -5,11 +5,7 @@ using namespace std;
 
 int main()
 {
-    double v = 100, h = 5000;
-
-    feetToMeters(h);
-
-    cout << "h: " << h << endl;
+    double v, h, phi, theta, w;
 
     return 0;
 }

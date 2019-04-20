@@ -34,3 +34,19 @@
 	<algorithm>
 	<vector>
 
+1553730224 source:c:\users\fimey\documents\github\unr-cs\cs 302\homework 3\hw3\main.cpp
+	"BubbleSort.h"
+	"MergeSort.h"
+
+1553730224 c:\users\fimey\documents\github\unr-cs\cs 302\homework 3\hw3\bubblesort.h
+	<iostream>
+	<random>
+	<algorithm>
+	<time.h>
+
+1553730224 c:\users\fimey\documents\github\unr-cs\cs 302\homework 3\hw3\mergesort.h
+	<iostream>
+	<random>
+	<algorithm>
+	<time.h>
+
