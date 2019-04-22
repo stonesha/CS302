@@ -1,6 +1,8 @@
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <chrono>
 #include "LeftLeaningRedBlack.h"
 
 void Performance(void);
@@ -14,15 +16,22 @@ int main()
 
 void Performance(void)
 {
-    srand(time(NULL));
-
     int limit = 10;
-
     int *pKeys = new int[limit];
+
+    //randomly generate unique values
+    std::vector<int> values;
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+
+    for(int i = 0; i < 100; i++)
+        values.push_back(i);
+
+    std::shuffle(values.begin(), values.end(), std::default_random_engine(seed));
+
 
     for (int i = 0; i < limit; ++i)
     {
-        pKeys[i] = rand() % 100;
+        pKeys[i] = values[i];
     }
 
     LeftLeaningRedBlack sort4;
@@ -34,8 +43,8 @@ void Performance(void)
 	sort4.FreeAll();
 
 	std::cout << std::endl << "Inserts" << "\t"
-        "| Parents" << std::endl
-        << "------------------------" << std::endl;
+        "| Parent at Insertion" << std::endl
+        << "-----------------------------" << std::endl;
 
     for (int i = 0; i < limit; ++i)
     {
@@ -54,12 +63,12 @@ void Performance(void)
     }
 
     std::cout << std::endl << "Traversal After Insertion"
-        << std::endl << "------------------------" << std::endl;
+        << std::endl << "-----------------------------" << std::endl;
 
     sort4.Traverse();
 
     std::cout << std::endl << "Removal of 4th Element Inserted"
-    << std::endl << "------------------------" << std::endl;
+    << std::endl << "-----------------------------" << std::endl;
 
     sort4.Delete(pKeys[3]); //deletes fourth element
 

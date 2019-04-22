@@ -858,7 +858,7 @@ bool LeftLeaningRedBlack::printParentRec(LLTB_t *pNode, int key)
        || printParentRec(pNode->pRight, key))
     {
         std::cout << " " << pNode->Ref.Key << " ";
-        return true;
+
     }
 
     return false;
