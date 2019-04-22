@@ -1,5 +1,6 @@
 #include <iostream>
-#include <random>
+#include <stdlib.h>
+#include <time.h>
 #include "LeftLeaningRedBlack.h"
 
 void Performance(void);
@@ -13,9 +14,7 @@ int main()
 
 void Performance(void)
 {
-    std::random_device gen;
-    std::mt19937 rng(gen());
-    std::uniform_int_distribution<std::mt19937::result_type> dist(1,100); // distribution in range [1, 6]
+    srand(time(NULL));
 
     int limit = 10;
 
@@ -23,7 +22,7 @@ void Performance(void)
 
     for (int i = 0; i < limit; ++i)
     {
-        pKeys[i] = dist(rng);
+        pKeys[i] = rand() % 100;
     }
 
     LeftLeaningRedBlack sort4;

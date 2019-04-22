@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1555927578 source:c:\users\fimey\documents\github\unr-cs\cs 302\homework 6\hw6-revamped\main.cpp
+1555927728 source:c:\users\fimey\documents\github\unr-cs\cs 302\homework 6\hw6-revamped\main.cpp
 	<iostream>
-	<random>
+	<stdlib.h>
+	<time.h>
 	"LeftLeaningRedBlack.h"
 
 1555925968 c:\users\fimey\documents\github\unr-cs\cs 302\homework 6\hw6-revamped\leftleaningredblack.h
