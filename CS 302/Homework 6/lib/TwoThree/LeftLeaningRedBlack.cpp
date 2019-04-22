@@ -49,6 +49,7 @@
 
 #define SafeDelete(x)		{ if (NULL != (x)) { delete (x);     (x) = NULL; } }
 #include "LeftLeaningRedBlack.h"
+#include "QzCommon.h"
 
 
 #ifdef USE_MALLOC_MACRO
@@ -598,11 +599,11 @@ void LeftLeaningRedBlack::SanityCheck(void)
 		int maxBlack = 0;
 
 		// The root of the tree must always be a black node.
-		////QzAssert(false == m_pRoot->IsRed);
+		//QzAssert(false == m_pRoot->IsRed);
 
 		SanityCheckRec(m_pRoot, false, 0, minBlack, maxBlack);
 
-		////QzAssert(minBlack == maxBlack);
+		//QzAssert(minBlack == maxBlack);
 	}
 }
 
@@ -617,7 +618,7 @@ void LeftLeaningRedBlack::SanityCheckRec(LLTB_t *pNode, bool isParentRed, int bl
 {
 	if (pNode->IsRed) {
 		// The parent of a red node must be black.
-		////QzAssert(false == isParentRed);
+		//QzAssert(false == isParentRed);
 
 	}
 	else {
@@ -626,7 +627,7 @@ void LeftLeaningRedBlack::SanityCheckRec(LLTB_t *pNode, bool isParentRed, int bl
 
 	// The child of a red node must be black.
 	if (isParentRed) {
-		//QzAssert(false == pNode->IsRed);
+		QzAssert(false == pNode->IsRed);
 	}
 
 	// Only apply this test if the LLRB is arranged as a 2-3 tree.
@@ -637,17 +638,17 @@ void LeftLeaningRedBlack::SanityCheckRec(LLTB_t *pNode, bool isParentRed, int bl
 	// The other must be black.
 	if ((NULL != pNode->pLeft) && (NULL != pNode->pRight)) {
 		if (IsRed(pNode->pLeft)) {
-			//QzAssert(false == IsRed(pNode->pRight));
+			QzAssert(false == IsRed(pNode->pRight));
 		}
 		if (IsRed(pNode->pRight)) {
-			//QzAssert(false == IsRed(pNode->pLeft));
+			QzAssert(false == IsRed(pNode->pLeft));
 		}
 	}
 #endif
 
 	if (NULL != pNode->pLeft) {
 		// The left child must come before this node in sorting order.
-		//QzAssert(pNode->pLeft->Ref.Key < pNode->Ref.Key);
+		QzAssert(pNode->pLeft->Ref.Key < pNode->Ref.Key);
 
 		SanityCheckRec(pNode->pLeft, pNode->IsRed, blackDepth, minBlack, maxBlack);
 	}
@@ -658,7 +659,7 @@ void LeftLeaningRedBlack::SanityCheckRec(LLTB_t *pNode, bool isParentRed, int bl
 
 	if (NULL != pNode->pRight) {
 		// The right child must come after this node in sorting order.
-		//QzAssert(pNode->pRight->Ref.Key > pNode->Ref.Key);
+		QzAssert(pNode->pRight->Ref.Key > pNode->Ref.Key);
 
 		SanityCheckRec(pNode->pRight, pNode->IsRed, blackDepth, minBlack, maxBlack);
 	}
@@ -750,7 +751,7 @@ void LeftLeaningRedBlack::LeafDepth(void)
 	// All leaf nodes must have the same number of black nodes between the
 	// root and each leaf.  Therefore the minimum and maximum number of black
 	// nodes must be the same.
-	//QzAssert(minBlack == maxBlack);
+	QzAssert(minBlack == maxBlack);
 }
 
 
@@ -829,13 +830,13 @@ void LeftLeaningRedBlack::Traverse(void)
 //
 void LeftLeaningRedBlack::TraverseRec(LLTB_t *pNode, int &prev)
 {
-	//QzAssert(NULL != pNode);
+	QzAssert(NULL != pNode);
 
 	if (NULL != pNode->pLeft) {
 		TraverseRec(pNode->pLeft, prev);
 	}
 
-	//QzAssert(prev < pNode->Ref.Key);
+	QzAssert(prev < pNode->Ref.Key);
 	prev = pNode->Ref.Key;
 	printf("%4d", pNode->Ref.Key);
 

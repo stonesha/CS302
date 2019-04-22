@@ -52,7 +52,29 @@
 
 #include "VoidRef.h"
 #include <cstddef>
+#include <stdio.h>
+#include <string.h>
+#include <iostream>
 
+#define Min(x,y)			(((x) < (y)) ? (x) : (y))
+#define Max(x,y)			(((x) > (y)) ? (x) : (y))
+
+#define SafeRelease(x)		{ if (NULL != (x)) { (x)->Release(); (x) = NULL; } }
+#define SafeDelete(x)		{ if (NULL != (x)) { delete (x);     (x) = NULL; } }
+#define SafeDeleteArray(x)	{ if (NULL != (x)) { delete [] (x);  (x) = NULL; } }
+#define SafeCloseHandle(x)	{ if (NULL != (x)) { CloseHandle(x); (x) = NULL; } }
+#define SafeRemoveWindow(x)	{ if (NULL != (x)) { (x)->RemoveFromParent(); } }
+#define SafeStrCopy(d, s)	UtfCopy(d, ArraySize(d), s)
+#define SafeStrAppend(d, s)	UtfAppend(d, ArraySize(d), s)
+#define SafeZeroVar(x)		memset(&(x), 0, sizeof(x))
+#define SafeZeroArray(x)	memset((x), 0, sizeof(x))
+#define IsBitSet(x,y)		(0 != ((x) & (y)))
+#define ArraySize(x)		(sizeof(x) / (sizeof((x)[0])))
+#define ClampRange(lo,v,hi)	(((v) < (lo)) ? (lo) : (((v) > (hi)) ? (hi) : (v)))
+#define QuickClamp(x,hi)	{ if (U32(x) > U32(hi)) { if (S32(x) > S32(hi)) x = hi; else x = 0; } }		// clamps number to 0..hi range
+#define GrowRange(lo,hi,x)	{ if ((x) < (lo)) { lo = x; } else if ((x) > (hi)) { hi = x; } }
+
+template <class T> void Swap(T &a, T &b) { T temp; temp = a; a = b; b = temp; }
 
 struct LLTB_t
 {
@@ -101,6 +123,11 @@ public:
 
 	void Traverse(void);
 	void TraverseRec(LLTB_t *pNode, int &prev);
+
+	bool printParentRec(LLTB_t *pNode, int key);
+	bool printParent(int key);
+
+	LLTB_t* searchRec(LLTB_t *pNode, int key);
 };
 
 
