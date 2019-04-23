@@ -1,0 +1,41 @@
+
+Inserts | Parent at Insertion
+-----------------------------
+ 77 (Black)
+ 18 (Red)        77     (Black)
+ 50 (Black)
+ 17 (Red)        18     (Black)
+ 6 (Black)       17     (Red)
+ 68 (Red)        77     (Black)
+ 48 (Black)      17     (Red)
+ 41 (Black)
+ 28 (Black)      17     (Black)
+ 46 (Red)        48     (Black)
+
+Traversal After Insertion
+-----------------------------
+6       Black
+17      Black
+18      Red
+28      Black
+41      Black
+46      Red
+48      Black
+50      Black
+68      Red
+77      Black
+
+Removal of 4th Element Inserted
+-----------------------------
+6       Black
+18      Black
+28      Black
+41      Black
+46      Red
+48      Black
+50      Black
+68      Red
+77      Black
+
+Process returned 0 (0x0)   execution time : 0.069 s
+Press any key to continue.
