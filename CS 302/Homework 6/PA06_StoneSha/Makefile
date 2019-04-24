@@ -1,5 +1,5 @@
 CXX = g++
-CXX_FLAGS = -Wall -std=c++14
+CXX_FLAGS = -w -std=c++14
 
 TARGET = main
 HEADERS = VoidRef.h LeftLeaningRedBlack.h
