@@ -3,6 +3,8 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <queue>
+#include <vector>
 
 #define VERTICES 5
 
@@ -14,7 +16,11 @@ public:
 
 	void dijkstra(int src);
 	int minDistance(int dist[], bool shortestPath[]);
-	void printGraph(int dist[], std::string index[]);
+	void printGraph(std::vector<int> dist, std::string index[]);
+
+	void printAllPaths(std::vector<int> path);
+	void allPaths();
+	bool notVisited(int v, std::vector<int> path);
 
 private:
 
@@ -24,13 +30,13 @@ private:
 	4 = Seattle(SE), 5 = Las Vegas(LV)
 	*/
 	
-	int weightedGraph[VERTICES][VERTICES] =
+	std::vector<std::vector<int>> weightedGraph =
 	{	/*R   SF  SLC   SE   LV*/
 /*R*/	{ 0, 218, 518, 705, 439 },
 /*SF*/	{ 218, 0, 0, 807, 569 },
 /*SLC*/	{ 518, 0, 0, 840, 421 },
 /*SE*/	{ 705, 807, 840, 0, 1116 },
-/*LV*/	{ 439, 569, 421, 1116, 0 },
+/*LV*/	{ 439, 569, 421, 1116, INT_MAX },
 	}; 	
 
 	std::string indexGraph[VERTICES] =
@@ -47,7 +53,7 @@ Graph::~Graph()
 {
 }
 
-
+/*
 void Graph::dijkstra(int src)
 {
 	int dist[VERTICES];
@@ -57,7 +63,7 @@ void Graph::dijkstra(int src)
 	std::fill_n(dist, VERTICES, INT_MAX);
 	std::fill_n(shortestPath, VERTICES, false);
 	index[0] = indexGraph[0];
-	
+
 
 	dist[src] = 0;
 
@@ -79,9 +85,11 @@ void Graph::dijkstra(int src)
 
 	std::cout << "Best Possible Path" << std::endl
 		<< "==================" << std::endl;
-	printVerticeWeights(dist, index);
+	printGraph(dist, index);
 
 }
+*/
+
 
 int Graph::minDistance(int dist[], bool shortestPath[])
 {
@@ -94,7 +102,7 @@ int Graph::minDistance(int dist[], bool shortestPath[])
 	return min_index;
 }
 
-void Graph::printGraph(int dist[], std::string index[])
+void Graph::printGraph(std::vector<int> dist, std::string index[])
 {
 	std::cout << "Vertex\tWeight\n";
 
@@ -111,4 +119,59 @@ void Graph::printGraph(int dist[], std::string index[])
 
 	std::cout << std::endl;
 		
+}
+
+void Graph::allPaths()
+{
+	std::vector<int> v;
+	std::vector<int> dist_min_path;
+	std::vector<int> dist_pathweight;
+	std::string index[VERTICES];
+
+	for (int i = 0; i < VERTICES; i++)
+	{
+		if (i != 0)
+			v.push_back(i);
+	}
+
+	int min_path = INT_MAX, min;
+
+	while (std::next_permutation(v.begin(), v.end()))
+	{
+		int current_pathweight = 0;
+		int k = 0;
+
+		for (unsigned int i = 0; i < v.size(); i++)
+		{
+			current_pathweight += weightedGraph[k][v[i]];
+			dist_min_path.push_back(weightedGraph[k][v[i]]);
+			k = v[i];
+		}
+		current_pathweight += weightedGraph[k][0];
+		dist_min_path.push_back(weightedGraph[k][0]);
+
+		min = std::min(min_path, current_pathweight);
+	}
+
+}
+
+
+
+bool Graph::notVisited(int v, std::vector<int> path)
+{
+	for (unsigned int i = 0; i < VERTICES; i++)
+	{
+		if (path.at(i) == v)
+			return true;
+	}
+	
+	return false;
+}
+
+void Graph::printAllPaths(std::vector<int> path)
+{
+	for (auto i = 0; i < path.size(); i++)
+		std::cout << path.at(i) << " ";
+
+	std::cout << std::endl;
 }

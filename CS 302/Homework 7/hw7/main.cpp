@@ -4,7 +4,8 @@ int main()
 {
 	Graph g;
 
-	g.dijkstra(0);
+	g.allPaths();
+
 
 	return 0;
 }
