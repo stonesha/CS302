@@ -31,8 +31,8 @@ private:
 	Graph adj =
 	{	/*R   SF  SLC   SE   LV*/
 /*R*/	{ 0, 218, 518, 705, 439 },
-/*SF*/	{ 218, 0, 0, 806, 570 },
-/*SLC*/	{ 518, 0, 0, 840, 421 },
+/*SF*/	{ 218,  0,  0, 806, 570 },
+/*SLC*/	{ 518,  0,  0, 840, 421 },
 /*SE*/	{ 705, 806, 832, 0, 1116 },
 /*LV*/	{ 438, 569, 421, 1125, 0},
 	};
@@ -172,10 +172,10 @@ void TSP::printSolution()
 	}
 	std::cout << final_path.at(0) << std::endl;
 
-	std::cout << "Path by City" << std::endl;
+	std::cout << "Path by City: ";
 	for (unsigned int i = 0; i < V; i++)
 	{
-		std::cout << index[i];
+		std::cout << index[final_path.at(i)];
 		std::cout << " -> ";
 	}
 	std::cout << index[0] << std::endl;
