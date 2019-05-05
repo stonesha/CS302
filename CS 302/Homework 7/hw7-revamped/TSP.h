@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <iostream>
 
 #define V 5
 
@@ -21,17 +22,19 @@ protected:
 
 	int secondMin(int i);
 
-	void TSPRec(int curr_weight,
-		int level);
+	void TSPUtil();
+
+	void TSPRec(int curr_bound, int curr_weight,
+		int level, VecInt curr_path);
 
 private:
 	Graph adj =
 	{	/*R   SF  SLC   SE   LV*/
-		/*R*/	{ 0, 218, 518, 705, 439 },
-		/*SF*/	{ 218, 0, 0, 807, 569 },
-		/*SLC*/	{ 518, 0, 0, 840, 421 },
-		/*SE*/	{ 705, 807, 840, 0, 1116 },
-		/*LV*/	{ 439, 569, 421, 1116, 0},
+/*R*/	{ 0, 218, 518, 705, 439 },
+/*SF*/	{ 218, 0, 0, 806, 570 },
+/*SLC*/	{ 518, 0, 0, 840, 421 },
+/*SE*/	{ 705, 806, 832, 0, 1116 },
+/*LV*/	{ 438, 569, 421, 1125, 0},
 	};
 
 	std::string index[V] =
@@ -39,15 +42,105 @@ private:
 	"Seattle", "Las Vegas" };
 
 	int final_weight = INT_MAX;
-
-	VecInt curr_path;
+	VecInt final_path;
 	VecBool visited;
-
-	int curr_bound = 0;
 };
 
 TSP::TSP()
 {
+}
+
+int TSP::firstMin(int i)
+{
+	int min = INT_MAX;
+	for (int j = 0; j < V; j++)
+		if (adj[i][j] < min && i != j)
+			min = adj[i][j];
+
+	return min;
+}
+
+
+int TSP::secondMin(int i)
+{
+	int first = INT_MAX, second = INT_MAX;
+
+	for (int j = 0; j < V; j++)
+	{
+		if (i == j)
+			continue;
+
+		if (adj[i][j] <= first)
+		{
+			second = first;
+			first = adj[i][j];
+		}
+		else if (adj[i][j] <= second && adj[i][j] != first)
+		{
+			second = adj[i][j];
+		}
+	}
+
+	return second;
+}
+
+
+void TSP::TSPRec(int curr_bound, int curr_weight,
+	int level, VecInt curr_path)
+{
+	if (level == V)
+	{
+		if (adj[curr_path[level - 1]][curr_path[0]] != 0)
+		{
+			int curr_res = curr_weight + adj[curr_path[level - 1]][curr_path[0]];
+
+			if (curr_res < final_weight)
+			{
+				final_weight = curr_res;
+				final_path = curr_path;
+			}
+		}
+	}
+
+	for (int i = 0; i < V; i++)
+	{
+		if (adj[curr_path[level - 1]][i] != 0 &&
+			visited[i] == false)
+		{
+			int temp = curr_bound;
+			curr_weight += adj[curr_path[level - 1]][i];
+
+			if (level == 1)
+				curr_bound -= ((firstMin(curr_path[level - 1]) +
+					firstMin(i)) / 2);
+			else
+				curr_bound -= ((secondMin(curr_path[level - 1]) +
+					firstMin(i)) / 2);
+
+			if (curr_bound + curr_weight < final_weight)
+			{
+				curr_path[level] = i;
+				visited[i] = true;
+
+				TSPRec(curr_bound, curr_weight, level + 1,
+					curr_path);
+			}
+
+			curr_weight -= adj[curr_path[level - 1]][i];
+			curr_bound = temp;
+
+			visited.assign(visited.size(), false);
+			for (int j = 0; j <= level - 1; j++)
+				visited[curr_path[j]] = true;
+		}
+	}
+}
+
+void TSP::TSPUtil()
+{
+	VecInt curr_path;
+	int curr_bound = 0;
+
 	curr_path.resize(V + 1);
 	visited.resize(curr_path.size());
 
@@ -61,28 +154,29 @@ TSP::TSP()
 
 	visited[0] = true;
 	curr_path[0] = 0;
-}
 
-int TSP::firstMin(int i)
-{
-
-}
-
-
-int TSP::secondMin(int i)
-{
-
-}
-
-
-void TSP::TSPRec(int curr_weight,
-	int level)
-{
-
+	TSPRec(curr_bound, 0, 1, curr_path);
 }
 
 void TSP::printSolution()
 {
+	TSPUtil();
 
-	TSPRec(0, 1);
+	std::cout << "Minimun cost: " << final_weight
+		<< "\nPath by Vertex: ";
+	for (unsigned int i = 0; i < V; i++)
+	{
+		std::cout << final_path.at(i);
+		if (i != final_path.size() - 1)
+			std::cout << " -> ";
+	}
+	std::cout << final_path.at(0) << std::endl;
+
+	std::cout << "Path by City" << std::endl;
+	for (unsigned int i = 0; i < V; i++)
+	{
+		std::cout << index[i];
+		std::cout << " -> ";
+	}
+	std::cout << index[0] << std::endl;
 }
