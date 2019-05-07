@@ -1,0 +1,29 @@
+Minimun cost: 2715
+Path by Vertex: 0 -> 1 -> 3 -> 2 -> 4 -> 0
+Path by City: Reno -> San Francisco -> Seattle -> Salt Lake City -> Las Vegas -> Reno
+
+All Possible Paths
+Assuming direct connections between all vertexes
+Reno -> Las Vegas -> Salt Lake City -> Seattle -> San Francisco
+Reno -> Las Vegas -> San Francisco -> Salt Lake City -> Seattle
+Reno -> Las Vegas -> San Francisco -> Seattle -> Salt Lake City
+Reno -> Las Vegas -> Seattle -> Salt Lake City -> San Francisco
+Reno -> Las Vegas -> Seattle -> San Francisco -> Salt Lake City
+Reno -> Salt Lake City -> Las Vegas -> San Francisco -> Seattle
+Reno -> Salt Lake City -> Las Vegas -> Seattle -> San Francisco
+Reno -> Salt Lake City -> San Francisco -> Las Vegas -> Seattle
+Reno -> Salt Lake City -> San Francisco -> Seattle -> Las Vegas
+Reno -> Salt Lake City -> Seattle -> Las Vegas -> San Francisco
+Reno -> Salt Lake City -> Seattle -> San Francisco -> Las Vegas
+Reno -> San Francisco -> Las Vegas -> Salt Lake City -> Seattle
+Reno -> San Francisco -> Las Vegas -> Seattle -> Salt Lake City
+Reno -> San Francisco -> Salt Lake City -> Las Vegas -> Seattle
+Reno -> San Francisco -> Salt Lake City -> Seattle -> Las Vegas
+Reno -> San Francisco -> Seattle -> Las Vegas -> Salt Lake City
+Reno -> San Francisco -> Seattle -> Salt Lake City -> Las Vegas
+Reno -> Seattle -> Las Vegas -> Salt Lake City -> San Francisco
+Reno -> Seattle -> Las Vegas -> San Francisco -> Salt Lake City
+Reno -> Seattle -> Salt Lake City -> Las Vegas -> San Francisco
+Reno -> Seattle -> Salt Lake City -> San Francisco -> Las Vegas
+Reno -> Seattle -> San Francisco -> Las Vegas -> Salt Lake City
+Reno -> Seattle -> San Francisco -> Salt Lake City -> Las Vegas

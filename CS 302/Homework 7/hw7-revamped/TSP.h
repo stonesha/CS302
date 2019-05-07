@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 
 #define V 5
 
@@ -17,8 +18,8 @@ public:
 
 	TSP();
 
-	void printSolution();
-	void printAllPaths();
+	void printSolution(std::ofstream& os);
+	void printAllPaths(std::ofstream& os);
 
 protected:
 	int firstMin(int i);
@@ -161,33 +162,33 @@ void TSP::TSPUtil()
 	TSPRec(curr_bound, 0, 1, curr_path);
 }
 
-void TSP::printSolution()
+void TSP::printSolution(std::ofstream &os)
 {
 	TSPUtil();
 
-	std::cout << "Minimun cost: " << final_weight
+	os << "Minimun cost: " << final_weight
 		<< "\nPath by Vertex: ";
 	for (unsigned int i = 0; i < V; i++)
 	{
-		std::cout << final_path.at(i);
+		os << final_path.at(i);
 		if (i != final_path.size() - 1)
-			std::cout << " -> ";
+			os << " -> ";
 	}
-	std::cout << final_path.at(0) << std::endl;
+	os << final_path.at(0) << std::endl;
 
-	std::cout << "Path by City: ";
+	os << "Path by City: ";
 	for (unsigned int i = 0; i < V; i++)
 	{
-		std::cout << index[final_path.at(i)];
-		std::cout << " -> ";
+		os << index[final_path.at(i)];
+		os << " -> ";
 	}
-	std::cout << index[0] << std::endl;
+	os << index[0] << std::endl;
 }
 
-void TSP::printAllPaths()
+void TSP::printAllPaths(std::ofstream& os)
 {
 
-	std::cout << std::endl << "All Possible Paths" << std::endl
+	os << std::endl << "All Possible Paths" << std::endl
 		<< "Assuming direct connections between all vertexes" << std::endl;
 
 	std::sort(index.begin() + 1, index.end());
@@ -197,13 +198,13 @@ void TSP::printAllPaths()
 
 		for (int i = 0; i < V; i++)
 		{
-			std::cout << index[i];
+			os << index[i];
 			if (i != index.size() - 1)
 			{
-				std::cout << " -> ";
+				os << " -> ";
 			}
 		}
-		std::cout << std::endl;
+		os << std::endl;
 	}
 
 }
