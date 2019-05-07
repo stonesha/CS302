@@ -1,3 +1,12 @@
+/*
+TO DO:
+@ FIX MST CALCULATING VALUES
+@ FIX PRINTING OF MST
+@ EXPLAIN HOW MST IS PRINTED
+
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <climits>
