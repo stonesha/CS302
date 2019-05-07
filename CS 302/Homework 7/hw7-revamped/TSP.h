@@ -188,6 +188,7 @@ void TSP::printAllPaths()
 {
 
 	std::cout << "All Possible Paths" << std::endl;
+	std::sort(index.begin() + 1, index.end());
 
 	while (std::next_permutation(index.begin() + 1, index.end()))
 	{
@@ -195,11 +196,8 @@ void TSP::printAllPaths()
 		for (int i = 0; i < V; i++)
 		{
 			std::cout << index[i];
-			if (i != final_path.size() - 1)
+			if (i != index.size() - 1)
 				std::cout << " -> ";
 		}
-			
 	}
-	
-
 }
