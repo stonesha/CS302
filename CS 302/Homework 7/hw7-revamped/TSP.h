@@ -2,11 +2,13 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 #define V 5
 
 typedef std::vector<int> VecInt;
 typedef std::vector<bool> VecBool;
+typedef std::vector<std::string> VecString;
 typedef std::vector<VecInt> Graph;
 
 
@@ -16,6 +18,7 @@ public:
 	TSP();
 
 	void printSolution();
+	void printAllPaths();
 
 protected:
 	int firstMin(int i);
@@ -23,10 +26,10 @@ protected:
 	int secondMin(int i);
 
 	void TSPUtil();
-
 	void TSPRec(int curr_bound, int curr_weight,
 		int level, VecInt curr_path);
 
+	
 private:
 	Graph adj =
 	{	/*R   SF  SLC   SE   LV*/
@@ -37,7 +40,7 @@ private:
 /*LV*/	{ 438, 569, 421, 1125, 0},
 	};
 
-	std::string index[V] =
+	VecString index =
 	{ "Reno", "San Francisco", "Salt Lake City",
 	"Seattle", "Las Vegas" };
 
@@ -179,4 +182,24 @@ void TSP::printSolution()
 		std::cout << " -> ";
 	}
 	std::cout << index[0] << std::endl;
+}
+
+void TSP::printAllPaths()
+{
+
+	std::cout << "All Possible Paths" << std::endl;
+
+	while (std::next_permutation(index.begin() + 1, index.end()))
+	{
+		std::cout << std::endl;
+		for (int i = 0; i < V; i++)
+		{
+			std::cout << index[i];
+			if (i != final_path.size() - 1)
+				std::cout << " -> ";
+		}
+			
+	}
+	
+
 }

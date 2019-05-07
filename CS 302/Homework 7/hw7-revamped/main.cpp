@@ -7,6 +7,8 @@ int main()
 
 	t.printSolution();
 
+	t.printAllPaths();
+
 	return 0;
 }
 
