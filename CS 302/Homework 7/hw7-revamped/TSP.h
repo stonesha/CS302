@@ -1,3 +1,11 @@
+/**
+ * @brief  CS-302 Homework 7
+ * @Author Stone Sha (stones@nevada.unr.edu)
+ * @date   May 2019
+ *
+ * Self contained header file for the solving of the Traveling Salesman Problem
+ * https://www.geeksforgeeks.org/traveling-salesman-problem-using-branch-and-bound-2/ used for reference
+ */
 #pragma once
 #include <vector>
 #include <string>
@@ -6,8 +14,9 @@
 #include <fstream>
 #include <climits>
 
-#define V 5
+#define V 5 //number of vertices
 
+//ease of typing for me
 typedef std::vector<int> VecInt;
 typedef std::vector<bool> VecBool;
 typedef std::vector<std::string> VecString;
@@ -15,6 +24,7 @@ typedef std::vector<VecInt> Graph;
 
 
 class TSP {
+	//public methods
 public:
 
 	TSP();
@@ -22,6 +32,7 @@ public:
 	void printSolution(std::ofstream& os);
 	void printAllPaths(std::ofstream& os);
 
+	//protected methods, only for helper methods
 protected:
 	int firstMin(int i);
 
@@ -31,8 +42,9 @@ protected:
 	void TSPRec(int curr_bound, int curr_weight,
 		int level, VecInt curr_path);
 
-	
+
 private:
+	//adjacency matrix for cities
 	Graph adj =
 	{	/*R   SF  SLC   SE   LV*/
 /*R*/	{ 0, 218, 518, 705, 439 },
@@ -42,10 +54,12 @@ private:
 /*LV*/	{ 438, 569, 421, 1125, 0},
 	};
 
+	//indes of cities in string form
 	VecString index =
 	{ "Reno", "San Francisco", "Salt Lake City",
 	"Seattle", "Las Vegas" };
 
+	//variables needed
 	int final_weight = INT_MAX;
 	VecInt final_path;
 	VecBool visited;
@@ -55,6 +69,7 @@ TSP::TSP()
 {
 }
 
+//finding minimum cost of edge at the end of vertex i
 int TSP::firstMin(int i)
 {
 	int min = INT_MAX;
@@ -65,7 +80,7 @@ int TSP::firstMin(int i)
 	return min;
 }
 
-
+//finding second lowest edge cost at vertex i
 int TSP::secondMin(int i)
 {
 	int first = INT_MAX, second = INT_MAX;
@@ -89,7 +104,7 @@ int TSP::secondMin(int i)
 	return second;
 }
 
-
+//recursive function to calculate shortest path and weight
 void TSP::TSPRec(int curr_bound, int curr_weight,
 	int level, VecInt curr_path)
 {
@@ -141,6 +156,7 @@ void TSP::TSPRec(int curr_bound, int curr_weight,
 	}
 }
 
+//TSP function for calling recursive function
 void TSP::TSPUtil()
 {
 	VecInt curr_path;
@@ -163,6 +179,7 @@ void TSP::TSPUtil()
 	TSPRec(curr_bound, 0, 1, curr_path);
 }
 
+//printing of the optimal path
 void TSP::printSolution(std::ofstream &os)
 {
 	TSPUtil();
@@ -186,6 +203,7 @@ void TSP::printSolution(std::ofstream &os)
 	os << index[0] << std::endl;
 }
 
+//printing all possible paths
 void TSP::printAllPaths(std::ofstream& os)
 {
 

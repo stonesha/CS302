@@ -6,8 +6,8 @@
 int main()
 {
 
-	TSP t;
-	std::ofstream fp("paths.txt", std::ios::out | std::ios::trunc);
+	TSP t; //class with all functions and data
+	std::ofstream fp("paths.txt", std::ios::out | std::ios::trunc); //for outputting paths
 
 	t.printSolution(fp);
 
