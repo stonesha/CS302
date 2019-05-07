@@ -1,24 +1,26 @@
-/*
-TO DO:
-@ FIX MST CALCULATING VALUES
-@ FIX PRINTING OF MST
-@ EXPLAIN HOW MST IS PRINTED
-
-
-*/
+/**
+ * @brief  CS-302 Homework 8
+ * @Author Stone Sha (stones@nevada.unr.edu)
+ * @date   May 2019
+ *
+ * Main driver program to test Prim's algorithm using an adjacency matrix to find the MST
+ * Explanation included in "[CS 302] HW8.docx"
+ */
 
 #include <iostream>
 #include <vector>
 #include <climits>
 
+//no. of vertices
 #define V 6
 
+//ease of typing for personal use
 typedef std::vector<int> VecInt;
 typedef std::vector<bool> VecBool;
 typedef std::vector<std::string> VecString;
 typedef std::vector<VecInt> Graph;
 
-//mess function for printing the adjacency matrix
+//messy function for printing the adjacency matrix
 void printGraph(Graph g)
 {
 	int n = 1;
@@ -42,16 +44,17 @@ void printGraph(Graph g)
 	std::cout << "  - - - - - - - - \n";
 }
 
-
+//prints mst from prim's algorithm
 void printMST(VecInt v, Graph g)
 {
 	std::cout << "Edge\t\tWeight\n";
 
-	for (int i = 0; i < V - 1; i++)
-		std::cout << v[i] << " -> " << i << "\t\t" << std::endl;
-		//<< g[i][v[i]] << std::endl;;
+	for (int i = 1; i < V; i++)
+		std::cout << v[i] + 1 << " -> " << i + 1 << "\t\t"
+		<< g[i][v[i]] << std::endl;
 }
 
+//to find the smallest neightbor vertex value for not visited vertices
 int firstMin(VecInt v, VecBool visited)
 {
 	int min = INT_MAX, min_index;
@@ -65,6 +68,7 @@ int firstMin(VecInt v, VecBool visited)
 	return min_index;
 }
 
+//takes in a graph and constructs the mst and weights for each edge
 void prim(Graph g)
 {
 	VecInt cheap(V, INT_MAX); //cheapest edge weights
@@ -92,7 +96,7 @@ void prim(Graph g)
 
 int main()
 {
-	//https://i.imgur.com/xpSJn1g.png << graph created
+	//2D vector, typedef as Graph
 	Graph g =
 	{// 1  2  3  4  5  6
 /*1*/ { 0, 2, 3, 0, 0, 0},
@@ -103,8 +107,10 @@ int main()
 /*6*/ { 0, 0, 0, 1, 2, 0},
 	};
 
+	//prints adjacency matrix
 	printGraph(g);
 
+	//uses prims algorithm to print the mst and the edge's weights
 	prim(g);
 
 	return 0;
