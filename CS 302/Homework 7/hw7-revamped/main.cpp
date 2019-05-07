@@ -7,7 +7,7 @@ int main()
 {
 
 	TSP t;
-	std::ofstream fp("paths.txt", std::ios::out, std::ios::trunc);
+	std::ofstream fp("paths.txt", std::ios::out | std::ios::trunc);
 
 	t.printSolution(fp);
 
