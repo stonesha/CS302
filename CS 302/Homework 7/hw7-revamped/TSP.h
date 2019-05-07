@@ -187,17 +187,23 @@ void TSP::printSolution()
 void TSP::printAllPaths()
 {
 
-	std::cout << "All Possible Paths" << std::endl;
+	std::cout << std::endl << "All Possible Paths" << std::endl
+		<< "Assuming direct connections between all vertexes" << std::endl;
+
 	std::sort(index.begin() + 1, index.end());
 
 	while (std::next_permutation(index.begin() + 1, index.end()))
 	{
-		std::cout << std::endl;
+
 		for (int i = 0; i < V; i++)
 		{
 			std::cout << index[i];
 			if (i != index.size() - 1)
+			{
 				std::cout << " -> ";
+			}
 		}
+		std::cout << std::endl;
 	}
+
 }
