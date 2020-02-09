@@ -2,3 +2,7 @@
 .vs/slnx.sqlite
 .vs/VSWorkspaceState.json
 .vs/slnx.sqlite
+
+*.exe
+.vscode
+.vs
