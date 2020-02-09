@@ -10,6 +10,8 @@ To do: add matplotlib functionality, perhaps in a separate file?
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include <algorithm>
+#include <iterator>
+
 
 using namespace std;
 using namespace cv;
@@ -37,7 +39,21 @@ int main(int argc, char* argv[]){
 		sigma11.push_back(gauss1D(i, 11));
 	}
 
+	ofstream outFile;
+	outFile.open("sigma-1.txt");
+	ostream_iterator<double> output_it(outFile, "\n");
+	copy(sigma1.begin(), sigma1.end(), output_it);
+	outFile.close();
+	
+	outFile.open("sigma-5.txt");
+	ostream_iterator<double> output_it2(outFile, "\n");
+	copy(sigma5.begin(), sigma5.end(), output_it2);
+	outFile.close();
 
+	outFile.open("sigma-11.txt");
+	ostream_iterator<double> output_it3(outFile, "\n");
+	copy(sigma11.begin(), sigma11.end(), output_it3);
+	outFile.close();
 
 	return 0;
 }
