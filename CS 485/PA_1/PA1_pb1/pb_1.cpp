@@ -3,8 +3,7 @@
 #include <cmath>
 #include <vector>
 #include <string>
-#include <opencv2/core/mat.hpp>
-#include <opencv2/imgcodecs.hpp>
+#include <opencv2/opencv.hpp>
 
 #define pi 3.14159
 
@@ -17,7 +16,9 @@ typedef vector<vector<float>> Vec2D;
 void Gauss (float s, int Hsize, VecF& H);
 void Gauss2D(float s, int kernelY, int kernelX, Vec2D& H);
 VecF conv1D (const VecF rect,  int kernelSize, VecF masks);
+int circular(int M, int x);
 void conv2D(Mat src, Mat dst, Vec2D masks);
+void conv2DSep(Mat src, Mat dst, VecF masks);
 void vecToFile(const VecF vec, const string fileName);
 
 int main(int argc, char* argv[]) {
@@ -52,21 +53,45 @@ int main(int argc, char* argv[]) {
 	Gauss(11.0, 55, sigma11);	
 	result = conv1D(rect128, 55, sigma11);
 	vecToFile(result, "sigma11.txt");	
-		
-	//(b) 2D convolution on images
-	Mat src = imread("lenna.pgm");
-	Mat dst = src.clone();
-	for (int y = 0; y < src.rows; y++)
-		for (int x = 0; x < src.cols; x++)
-			dst.at<uchar>(y, x) = 0;
-	Vec2D sigma2D;
-
-	Gauss2D(11.0, 55, 55, sigma2D);
-	conv2D(src, dst, sigma2D);
-	
-	imwrite("lenna_sigma1.pgm", dst);
 
 	fp.close();
+		
+	//(b) 2D convolution on images
+	Mat src = imread("lenna.pgm", IMREAD_GRAYSCALE);
+	Mat dst = src.clone();
+	Vec2D sigma2D;
+
+	//sigma = 1
+	Gauss2D(1, 5, 5, sigma2D);
+	conv2D(src, dst, sigma2D);
+	imwrite("lenna_sigma1.pgm", dst);
+	dst = src.clone();
+
+	//sigma = 5
+	Gauss2D(5, 25, 25, sigma2D);
+	conv2D(src, dst, sigma2D);
+	imwrite("lenna_sigma5.pgm", dst);
+	dst = src.clone();
+
+	//sigma = 11
+	Gauss2D(11, 55, 55, sigma2D);
+	conv2D(src, dst, sigma2D);
+	imwrite("lenna_sigma11.pgm", dst);
+	dst = src.clone();
+
+	//(c) 2D Gaussian smoothing with 1D masks
+	conv2DSep(src, dst, sigma1);
+	imwrite("lenna_sigma1_1D.pgm", dst);
+	dst = src.clone();
+
+	conv2DSep(src, dst, sigma5);
+	imwrite("lenna_sigma5_1D.pgm", dst);
+	dst = src.clone();
+
+	conv2DSep(src, dst, sigma11);
+	imwrite("lenna_sigma11_1D.pgm", dst);
+	dst = src.clone();
+
 	return 0;
 }
 
@@ -95,19 +120,6 @@ VecF conv1D(const VecF rect, int kernelSize, const VecF masks)
 	}
 
 	return result;
-}
-
-int reflect(int M, int x)
-{
-	if (x < 0)
-	{
-		return -x - 1;
-	}
-	if (x >= M)
-	{
-		return 2 * M - x - 1;
-	}
-	return x;
 }
 
 int circular(int M, int x)
@@ -139,6 +151,41 @@ void conv2D(Mat src, Mat dst, Vec2D masks)
 	}
 
 	
+}
+
+void conv2DSep(Mat src, Mat dst, VecF masks)
+{
+	float sum, x1, y1;
+	int half = masks.size() / 2;
+	Mat temp = src.clone();
+
+	for (int y = 0; y < src.rows; y++)
+	{
+		for (int x = 0; x < src.cols; x++)
+		{
+			sum = 0.0;
+			for (int i = -half; i <= half; i++)
+			{
+				y1 = circular(src.rows, y - i);
+				sum += masks[i + half] * src.at<uchar>(y1, x);
+			}
+			temp.at<uchar>(y, x) = sum;
+		}
+	}
+
+	for (int y = 0; y < src.rows; y++)
+	{
+		for (int x = 0; x < src.cols; x++)
+		{
+			sum = 0.0;
+			for (int i = -half; i <= half; i++)
+			{
+				x1 = circular(src.rows, x - i);
+				sum += masks[i + half] * temp.at<uchar>(y, x1);
+			}
+			dst.at < uchar>(y, x) = sum;
+		}
+	}
 }
 
 //to generate masks
@@ -179,6 +226,7 @@ void Gauss (float s, int Hsize, VecF& H)
 void Gauss2D(float s, int kernelY, int kernelX, Vec2D& H)
 
 {
+	H.clear();
 	H.resize(kernelY, VecF(kernelX, 0));
 
 	int i, j;
